@@ -1,0 +1,12 @@
+const PRIMARY_COLOR = '#4059AD'
+const SECONDARY_COLOR = '#6B9AC4'
+const TERTIARY_COLOR = '#F4B942'
+const WHITE = '#EFF2F1'
+
+
+export {
+    PRIMARY_COLOR,
+    SECONDARY_COLOR,
+    TERTIARY_COLOR,
+    WHITE
+}
