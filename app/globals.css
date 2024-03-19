@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,16 +24,30 @@ body {
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 
   .button-primary {
-    @apply border-2 border-primary bg-secondary text-primary dark:text-secondary dark:bg-primary rounded-lg w-full max-w-40;
+    @apply py-2 px-3 max-h-20 w-fit bg-primary font-primaryFont text-white  dark:text-black dark:bg-white dark:hover:text-black dark:focus:border-jommi_purple dark:focus:bg-white rounded-lg  hover:bg-tertiary focus:border-2 focus:border-jommi_purple focus:bg-primary ;
   }
 
   .button-secondary {
-    @apply border-2 border-primary bg-primary text-secondary rounded-lg w-full max-w-40;
+    @apply py-2 px-3 max-h-20 w-fit border-primary bg-jommi_blue font-primaryFont text-white font-bold rounded-lg ;
   }
+
+ .input{
+  @apply border border-secondary_grey  focus:outline-none focus:border-primary font-primaryFont text-secondary_grey py-2 px-2  w-full rounded-[7px]  ;
+ }
+
+ .input__disabled{
+  @apply bg-tertiary_grey dark:border dark:border-tertiary_grey
+ }
+
+ .input_label {
+  @apply relative h-full font-primaryFont text-secondary_grey text-sm
+ }
 }
