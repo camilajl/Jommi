@@ -37,14 +37,14 @@ const InputDate = ({
         )}
       </span>
       <div
-        className={disabled ? 'input input__disabled' : ' input bg-white dark:bg-transparent'}
+        className={disabled ? 'input input__disabled' : ' input bg-transparent'}
       >
         <input
           type='date'
           name={name}
           disabled={disabled}
           required={required}
-          className='w-full focus:outline-none bg-transparents'
+          className='w-full focus:outline-none bg-transparent'
           defaultValue={defaultValue}
           onChange={onChange}
 

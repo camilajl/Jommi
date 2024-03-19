@@ -40,7 +40,7 @@ body {
   }
 
  .input{
-  @apply border border-secondary_grey  focus:outline-none focus:border-primary font-primaryFont text-secondary_grey py-2 px-2  w-full rounded-[7px]  ;
+  @apply border border-secondary_grey bg-transparent focus:outline-none focus:border-primary font-primaryFont text-secondary_grey py-2 px-2  w-full rounded-[7px]  ;
  }
 
  .input__disabled{
