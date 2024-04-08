@@ -18,6 +18,7 @@ const config: Config = {
         primary: "#4D4D4D",
         black: "#000000",
         tertiary: "#F1DB4B",
+        "tertiary-plus": "#FFFB00",
         white: "#FFFFFF",
         jommi_blue: "#29CAE5",
         jommi_red: "#EB591B",
@@ -25,9 +26,10 @@ const config: Config = {
         soft_grey: "#B3B3B3",
         secondary_grey: "#838383",
         tertiary_grey: "#D7D7D7",
-        blackish_grey :"#1A1A1A",
-        jommi_purple:"#9747FF",
-
+        blackish_grey: "#1A1A1A",
+        jommi_purple: "#9747FF",
+        jommi_purple_plus: "#742BD3",
+        "purple-custom": "#231127"
       },
       fontFamily: {
         primaryFont: ["Work Sans", 'sans-serif'],
@@ -35,6 +37,5 @@ const config: Config = {
     },
   },
   plugins: [require("tw-elements/plugin.cjs")],
-  darkMode: "class"
 };
 export default config;

@@ -12,8 +12,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 35, 17, 39;
+    --background-end-rgb: 25, 12, 28;
   }
 }
 
@@ -32,22 +32,22 @@ body {
   }
 
   .button-primary {
-    @apply py-2 px-3 max-h-20 w-fit bg-primary font-primaryFont text-white  dark:text-black dark:bg-white dark:hover:text-black dark:focus:border-jommi_purple dark:focus:bg-white rounded-lg  hover:bg-tertiary focus:border-2 focus:border-jommi_purple focus:bg-primary ;
+    @apply py-2 px-3 max-h-20 w-fit rounded-lg focus:border-2 text-white hover:bg-jommi_purple bg-jommi_purple_plus dark:text-white dark:bg-jommi_purple_plus dark:hover:bg-jommi_purple;
   }
 
   .button-secondary {
-    @apply py-2 px-3 max-h-20 w-fit border-primary bg-jommi_blue font-primaryFont text-white font-bold rounded-lg ;
+    @apply py-2 px-3 max-h-20 w-fit rounded-lg text-white bg-secondary_grey hover:bg-soft_grey dark:text-white dark:bg-secondary_grey dark:hover:bg-soft_grey;
   }
 
- .input{
-  @apply border border-secondary_grey bg-transparent focus:outline-none focus:border-primary font-primaryFont text-secondary_grey py-2 px-2  w-full rounded-[7px]  ;
- }
+  .input {
+    @apply border border-secondary_grey bg-transparent focus:outline-none focus:border-primary font-primaryFont text-secondary_grey py-2 px-2 w-full rounded-[7px];
+  }
 
- .input__disabled{
-  @apply bg-tertiary_grey dark:border dark:border-tertiary_grey
- }
+  .input__disabled {
+    @apply bg-tertiary_grey dark:border dark:border-tertiary_grey
+  }
 
- .input_label {
-  @apply relative h-full font-primaryFont text-secondary_grey text-sm
- }
+  .input_label {
+    @apply relative h-full font-primaryFont text-secondary_grey text-sm
+  }
 }

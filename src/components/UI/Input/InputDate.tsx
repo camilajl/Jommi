@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 
 type InputDateType = {
@@ -36,7 +37,7 @@ const InputDate = ({
           <span className='font-primaryFont text-lab-red'> * </span>
         )}
       </span>
-      <div
+      <span
         className={disabled ? 'input input__disabled' : ' input bg-transparent'}
       >
         <input
@@ -49,7 +50,7 @@ const InputDate = ({
           onChange={onChange}
 
         />
-      </div>
+      </span>
     </label>
   );
 }

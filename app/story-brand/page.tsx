@@ -1,4 +1,4 @@
-'use client'
+
 import React from 'react';
 import Button from '@/src/components/UI/Buttons/Button';
 import InputText from '@/src/components/UI/Input/InputText';
@@ -12,11 +12,13 @@ const StoryBrand = () => {
                 StoryBrand
             </div>
             <div className='h-[400px]  w-full  border-primary flex flex-col gap-4 items-center py-4 ' >
-                <Button text='Button' />
-                <Button text='Call to action' hierarchy='button-secondary' />
-                <InputText type='password' label='Input text' placeholder='texto' name='example'/>
-                <InputNumber label='Input number' placeholder='number' name='exampleNumeric' required/>
-                <InputDate name='exampleDate' />
+                <div className='flex flex-row gap-4 bg-white dark:bg-purple-custom p-4 rounded-lg'>
+                    <Button text='Button' hierarchy='button-secondary' />
+                    <Button text='Button' />
+                    <InputText type='password' label='Input text' placeholder='texto' name='example' />
+
+                </div>
+
 
             </div>
 
