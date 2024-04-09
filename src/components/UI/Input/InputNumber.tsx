@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { NumericFormat } from 'react-number-format'
+import { Unstable_NumberInput as NumberInput } from '@mui/base/Unstable_NumberInput';
 
 
 type InputNumberType = {
@@ -11,29 +11,12 @@ type InputNumberType = {
     name: string
     extraClassNames?: string
     thousandSeparator?: boolean;
-    prefix?: string;
-    suffix?: string;
-    fixedDecimalScale?: boolean;
-    decimalScale?: number;
-    allowNegative?: boolean;
-    allowLeadingZeros?: boolean;
-    value?: string;
-    min?: number;
-    max?: number;
-    step?: number;
+    value?: number | undefined | null;
 }
 
-const InputNumber = ({ label, placeholder, required = false, name, extraClassNames, disabled = false, thousandSeparator = true,
-  allowNegative = false,
-  decimalScale = 0,
-  fixedDecimalScale = false,
-  allowLeadingZeros = false,
-  prefix = '',
-  suffix = '',
-  value,
-  min,
-  max,
-  step, }: InputNumberType) => {
+const InputNumber = ({ label, required = false, name, extraClassNames, value,
+ }: InputNumberType) => {
+ 
     return (      
         <label
         htmlFor={name}
@@ -45,26 +28,13 @@ const InputNumber = ({ label, placeholder, required = false, name, extraClassNam
           {label}
           {required && <span className='text-red-900'> * </span>}
         </span>     
-          <NumericFormat
-            name={name}
-            placeholder={placeholder}
-            className={`${
-              disabled ? 'input input__disabled' : 'input'
-            } `}
-            required={required}
-            disabled={disabled}
-            thousandSeparator={thousandSeparator}
-            fixedDecimalScale={fixedDecimalScale}
-            decimalScale={decimalScale}
-            allowNegative={allowNegative}
-            allowLeadingZeros={allowLeadingZeros}
-            prefix={prefix}
-            suffix={suffix}
-            defaultValue={value}
-            min={min}
-            max={max}
-            step={step}
-          />
+        <NumberInput
+        className='input'
+        aria-label="Demo number input"
+        placeholder="Type a number…"
+        value={value}
+        // onChange={(event, val) => setValue(val)}
+        />
         </label>
     )
 }

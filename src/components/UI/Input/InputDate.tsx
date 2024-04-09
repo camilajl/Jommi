@@ -1,5 +1,9 @@
 'use client'
 import React from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import {AdapterDayjs} from'@mui/x-date-pickers/AdapterDayjs'
+
 
 type InputDateType = {
   label?: string;
@@ -8,7 +12,7 @@ type InputDateType = {
   required?: boolean;
   extraClassNames?: string;
   children?: React.ReactNode;
-  defaultValue?: string;
+  value?: null | undefined;
   onChange?: any;
   role?: string;
 };
@@ -20,7 +24,7 @@ const InputDate = ({
   required = false,
   extraClassNames = '',
   children,
-  defaultValue,
+  value,
   onChange,
   role,
 }: InputDateType) => {
@@ -37,20 +41,15 @@ const InputDate = ({
           <span className='font-primaryFont text-lab-red'> * </span>
         )}
       </span>
-      <span
-        className={disabled ? 'input input__disabled' : ' input bg-transparent'}
-      >
-        <input
-          type='date'
-          name={name}
-          disabled={disabled}
-          required={required}
-          className='w-full focus:outline-none bg-transparent'
-          defaultValue={defaultValue}
-          onChange={onChange}
-
-        />
-      </span>
+     
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DatePicker
+        label="Date picker"
+        // onChange={(newValue) => setValue(newValue)}
+/>
+      </LocalizationProvider>
+      
+      
     </label>
   );
 }
