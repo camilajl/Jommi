@@ -6,6 +6,7 @@ import InputDate from '@/src/components/UI/Input/InputDate';
 import InputNumber from '@/src/components/UI/Input/InputNumber';
 
 const StoryBrand = () => {
+
     return (
         <div className='flex flex-col w-full min-h-screen p-20 items-center justify-center'>
             <div className='text-center'>
@@ -16,8 +17,8 @@ const StoryBrand = () => {
                     <Button text='Button' hierarchy='button-secondary' />
                     <Button text='Button' />
                     <InputText type='password' label='Input text' placeholder='texto' name='example' />
-                    <InputNumber  label='Number' name='number' placeholder='number' />
-                    <InputDate name='Fecha'/>
+                    <InputNumber label='Number' name='number' />
+                    <InputDate name='Fecha' />
 
                 </div>
 
