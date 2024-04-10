@@ -3,6 +3,7 @@ import React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import {AdapterDayjs} from'@mui/x-date-pickers/AdapterDayjs'
+import { stylesDatePicker } from '@/src/utils/const';
 
 
 type InputDateType = {
@@ -17,6 +18,7 @@ type InputDateType = {
   role?: string;
 };
 
+
 const InputDate = ({
   label,
   name,
@@ -28,30 +30,31 @@ const InputDate = ({
   onChange,
   role,
 }: InputDateType) => {
+  const classes = stylesDatePicker();
+
 
   return (
-    <label
-      htmlFor={name}
-      className={`
-        input_label 'flex flex-col ${extraClassNames}`}
-    >
-      <span>
+    <>
+      {/* <span>
         {label}
         {required && (
           <span className='font-primaryFont text-lab-red'> * </span>
         )}
       </span>
-     
+      */}
       <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
         label="Date picker"
+        className={classes?.custom}
         // onChange={(newValue) => setValue(newValue)}
-/>
+      />
       </LocalizationProvider>
       
       
-    </label>
+    </>
   );
 }
 
 export default InputDate;
+
+

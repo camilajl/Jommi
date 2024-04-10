@@ -1,8 +1,18 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import createTheme from "@mui/material/styles/createTheme";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const theme = createTheme({
+  palette: {
+    mode: 'dark',  // Habilita el modo oscuro
+    // Otros colores personalizados para modo oscuro si es necesario
+  },
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,11 +24,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+ 
+
   return (
     <html lang="en">
+     
       <body className={inter.className}>
-        {children}
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      
+       
       </body>
+      
     </html>
   );
 }

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { Unstable_NumberInput as NumberInput } from '@mui/base/Unstable_NumberInput';
+import { NumericFormat } from 'react-number-format'
 
 
 type InputNumberType = {
@@ -11,12 +11,29 @@ type InputNumberType = {
     name: string
     extraClassNames?: string
     thousandSeparator?: boolean;
-    value?: number | undefined | null;
+    prefix?: string;
+    suffix?: string;
+    fixedDecimalScale?: boolean;
+    decimalScale?: number;
+    allowNegative?: boolean;
+    allowLeadingZeros?: boolean;
+    value?: string;
+    min?: number;
+    max?: number;
+    step?: number;
 }
 
-const InputNumber = ({ label, required = false, name, extraClassNames, value,
- }: InputNumberType) => {
- 
+const InputNumber = ({ label, placeholder, required = false, name, extraClassNames, disabled = false, thousandSeparator = true,
+  allowNegative = false,
+  decimalScale = 0,
+  fixedDecimalScale = false,
+  allowLeadingZeros = false,
+  prefix = '',
+  suffix = '',
+  value,
+  min,
+  max,
+  step, }: InputNumberType) => {
     return (      
         <label
         htmlFor={name}
@@ -28,13 +45,26 @@ const InputNumber = ({ label, required = false, name, extraClassNames, value,
           {label}
           {required && <span className='text-red-900'> * </span>}
         </span>     
-        <NumberInput
-        className='input'
-        aria-label="Demo number input"
-        placeholder="Type a number…"
-        value={value}
-        // onChange={(event, val) => setValue(val)}
-        />
+          <NumericFormat
+            name={name}
+            placeholder={placeholder}
+            className={`${
+              disabled ? 'input input__disabled' : 'input'
+            } `}
+            required={required}
+            disabled={disabled}
+            thousandSeparator={thousandSeparator}
+            fixedDecimalScale={fixedDecimalScale}
+            decimalScale={decimalScale}
+            allowNegative={allowNegative}
+            allowLeadingZeros={allowLeadingZeros}
+            prefix={prefix}
+            suffix={suffix}
+            defaultValue={value}
+            min={min}
+            max={max}
+            step={step}
+          />
         </label>
     )
 }
