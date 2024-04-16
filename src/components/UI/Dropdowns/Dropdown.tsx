@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Select from 'react-select';
 
-const themeSelect = theme => ({
+const themeSelect = (theme: { colors: any; }) => ({
     ...theme,
     colors: {
         ...theme.colors,
@@ -19,40 +19,40 @@ const themeSelect = theme => ({
 });
 
 const stylesSelect = {
-    container: styles => ({
+    container: (styles: any) => ({
         ...styles,
         marginTop: '0 !important',
         marginLeft: '1px !important',
         marginRight: '2px !important',
     }),
-    control: styles => ({
+    control: (styles: any) => ({
         ...styles,
         borderRadius: '12px',
         borderColor: '#B0B4B8',
     }),
-    dropdownIndicator: styles => ({
+    dropdownIndicator: (styles: any) => ({
         ...styles,
         color: '#0A283D',
     }),
-    singleValue: styles => ({
+    singleValue: (styles: any) => ({
         ...styles,
         color: '#0A283D',
     }),
-    menuList: styles => ({
+    menuList: (styles: any) => ({
         ...styles,
         color: '#0A283D',
     }),
-    placeholder: styles => ({
+    placeholder: (styles: any) => ({
         ...styles,
         color: '#B0B4B8',
     }),
-    multiValueLabel: styles => ({
+    multiValueLabel: (styles: any) => ({
         ...styles,
         color: '#0A283D',
     }),
 
-    indicatorSeparator: styles => ({ ...styles, display: 'none' }),
-    menuPortal: base => ({ ...base, zIndex: 9999, position: 'absolute' }),
+    indicatorSeparator: (styles: any) => ({ ...styles, display: 'none' }),
+    menuPortal: (base: any) => ({ ...base, zIndex: 9999, position: 'absolute' }),
 };
 
 export const SelectInput = ({
@@ -64,7 +64,7 @@ export const SelectInput = ({
     selected,
     required = false,
     text,
-    onInputChange = e => { },
+    onInputChange = (e: any) => { },
     loadOptions,
     isDisabled = false,
 }: any) => {
