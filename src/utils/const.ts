@@ -9,13 +9,13 @@ const WHITE = '#EFF2F1'
 export const stylesDatePicker = makeStyles(() => ({
     custom: {
         '& .MuiFormControl-root':{
-            height: '40px',
+            height: '20px',
         },
       '& .MuiInputBase-root': {
         height: '40px',
         minWidth: '300px',
         width: '400px',
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         fontSize: '14px',
         textAlign: 'center',
         color: '#707275',
@@ -34,18 +34,36 @@ export const stylesDatePicker = makeStyles(() => ({
         borderRadius: '7px',
         borderWidth: '1px 1px 1px 1px',
         borderColor: '#707275',
+        color: '#707275',
+        fontSize: '14px',
       },
       '& .MuiInputLabel-root': {
         color: '#707275',
         fontSize: '14px',
         fontFamily: 'Work Sans',
+        height: '20px',
+        backgroundColor: '#232435',
+        
 
       },
      '& .MuiTextField-root':{
-        display: 'flex',            // Añadir estas propiedades
-        justifyContent: 'center',   // para centrar horizontalmente
+        color: '#707275',
+        height: '20px',
+        display: 'flex',            
+        justifyContent: 'center',   
         alignItems: 'center',   
+     },
+    '& .MuiInputBase-input':{
+      backgroundColor: '#232435',
+     },
+     '& .MuiOutlinedInput-input':{
+      backgroundColor: '#EB591B',
+     },
+     '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':{
+      backgroundColor: '#FFFB00',
+      height: '20px',
      }
+    
     },
   }));
 

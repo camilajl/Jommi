@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
-        mode: 'dark',  // Habilita el modo oscuro
+        mode: 'light',  // Habilita el modo oscuro
         // Otros colores personalizados para modo oscuro si es necesario
     },
 });

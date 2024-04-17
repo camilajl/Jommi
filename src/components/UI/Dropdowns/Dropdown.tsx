@@ -1,20 +1,20 @@
 'use client'
 import * as React from 'react';
-import Select from 'react-select';
+import Select, { Theme } from 'react-select';
 
-const themeSelect = (theme: { colors: any; }) => ({
+const themeSelect =  (theme: Theme) => ({
     ...theme,
     colors: {
         ...theme.colors,
-        primary: '#14517A',
+        primary: '#4D4D4D',
         primary50: '#FFFFFF',
         primary25: '#FFFFFF',
-        danger: '#052636',
-        dangerLight: '#14516A',
+        danger: '#29CAE5',
+        dangerLight: '#29CAE5',
         neutral0: '#FFFFFF', // background
-        neutral30: '#14517A', // hover:border
-        neutral40: '#052636', // hover:icons
-        neutral60: '#14517A', // focus:icons
+        neutral30: '#4D4D4D', // hover:border
+        neutral40: '#4D4D4D', // hover:icons
+        neutral60: '#4D4D4D', // focus:icons
     },
 });
 
@@ -24,31 +24,34 @@ const stylesSelect = {
         marginTop: '0 !important',
         marginLeft: '1px !important',
         marginRight: '2px !important',
+
     }),
     control: (styles: any) => ({
         ...styles,
-        borderRadius: '12px',
-        borderColor: '#B0B4B8',
+        borderRadius: '7px',
+        borderColor: '#838383',
     }),
     dropdownIndicator: (styles: any) => ({
         ...styles,
-        color: '#0A283D',
+        color: '#838383',
     }),
     singleValue: (styles: any) => ({
         ...styles,
-        color: '#0A283D',
+        color: '#838383',
     }),
     menuList: (styles: any) => ({
         ...styles,
-        color: '#0A283D',
+        color: '#29CAE5',
     }),
     placeholder: (styles: any) => ({
         ...styles,
-        color: '#B0B4B8',
+        color: '#838383',
+        fontFamily: 'Work Sans',
+        fontSize: '14px',
     }),
     multiValueLabel: (styles: any) => ({
         ...styles,
-        color: '#0A283D',
+        color: '#838383',
     }),
 
     indicatorSeparator: (styles: any) => ({ ...styles, display: 'none' }),
@@ -76,7 +79,7 @@ export const SelectInput = ({
             </span>
             <Select
                 menuPosition='fixed'
-                menuPortalTarget={document.body}
+                menuPortalTarget={document?.body}
                 isMulti={isMulti}
                 options={defaultOptions || []}
                 name={name}
@@ -85,14 +88,14 @@ export const SelectInput = ({
                 isDisabled={isDisabled}
                 getOptionLabel={e => e.label}
                 getOptionValue={e => e.value}
-                onFocus={() => {
-                    loadOptions('');
-                }}
-                onInputChange={e => {
-                    //if (e.length > 2) {
-                    loadOptions(e);
-                    //}
-                }}
+                // onFocus={() => {
+                //     loadOptions('');
+                // }}
+                // onInputChange={e => {
+                //     //if (e.length > 2) {
+                //     loadOptions(e);
+                //     //}
+                // }}
                 onChange={
                     isMulti
                         ? (selected: any): void => {

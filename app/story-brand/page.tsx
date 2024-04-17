@@ -32,9 +32,11 @@ const StoryBrand = async () => {
                     <Button text='Button' hierarchy='button-secondary' />
                     <Button text='Button' />
                     <InputText type='password' label='Input text' placeholder='texto' name='example' />
-                    <InputNumber label='Number' name='number' />
+                    <InputNumber label='Number' name='number' placeholder='number' />
+                    
                     <InputDate name='Fecha' />
-                    <SelectInput defaultOptions={miArray} />
+                    <div className='w-56'><SelectInput defaultOptions={miArray} /></div>
+                    
                 </div>
 
 
