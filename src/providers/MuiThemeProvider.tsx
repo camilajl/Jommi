@@ -7,7 +7,9 @@ const theme = createTheme({
         mode: 'dark',  // Habilita el modo oscuro
         // Otros colores personalizados para modo oscuro si es necesario
     },
-});
+
+}
+);
 
 interface MuiThemeProviderInterface {
     children: React.ReactNode

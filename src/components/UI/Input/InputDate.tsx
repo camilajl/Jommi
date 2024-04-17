@@ -2,7 +2,7 @@
 import React from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import {AdapterDayjs} from'@mui/x-date-pickers/AdapterDayjs'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { stylesDatePicker } from '@/src/utils/const';
 
 
@@ -42,15 +42,18 @@ const InputDate = ({
         )}
       </span>
       */}
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label="Date picker"
-        className={classes?.custom}
-        // onChange={(newValue) => setValue(newValue)}
-      />
-      </LocalizationProvider>
-      
-      
+      <div className='w-full'>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            label="Date picker"
+            className={classes?.custom}
+          // onChange={(newValue) => setValue(newValue)}
+          />
+        </LocalizationProvider>
+      </div>
+
+
+
     </>
   );
 }
