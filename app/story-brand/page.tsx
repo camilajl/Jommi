@@ -6,10 +6,8 @@ import React from 'react';
 const StoryBrand = async () => {
 
 
-    return (
-<<<<<<< HEAD
-        <StoryBrandPage props={{}}></StoryBrandPage>
-=======
+    return ( 
+        <StoryBrandPage props={{}}></StoryBrandPage> 
         <div className='flex flex-col w-full min-h-screen p-20 items-center justify-center'>
             <div className='text-center'>
                 StoryBrand
@@ -29,7 +27,6 @@ const StoryBrand = async () => {
 
 
         </div>
->>>>>>> 70701e6e7b1f1c1ac6a6a977baac19b10a31a440
     )
 }
 
