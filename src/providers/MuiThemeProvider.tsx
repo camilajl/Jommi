@@ -16,7 +16,7 @@ interface MuiThemeProviderInterface {
 }
 
 export const MuiThemeProvider = ({ children }: MuiThemeProviderInterface) => {
-    console.log('theme :>> ', theme);
+
     return (
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
     )

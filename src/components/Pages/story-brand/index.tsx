@@ -6,8 +6,12 @@ import InputDate from '@/src/components/UI/Input/InputDate';
 import InputNumber from '@/src/components/UI/Input/InputNumber';
 import { SelectInput } from '@/src/components/UI/Dropdowns/Dropdown';
 
-const StoryBrandPage = ({ props }) => {
-    const { } = props
+type BrandPageType = {
+
+}
+
+const StoryBrandPage = ({ }: BrandPageType) => {
+
     //recibe query y retorna resultados del query
 
     const [options, setOptions] = useState([])
@@ -24,7 +28,7 @@ const StoryBrandPage = ({ props }) => {
             console.log("e ", e)
         }
     }
-    console.log("pokemons options ", props)
+
     return (
         <div className='flex flex-col w-full min-h-screen p-20 items-center justify-center'>
             <div className='text-center'>
