@@ -15,7 +15,7 @@ export const stylesDatePicker = makeStyles(() => ({
         height: '40px',
         minWidth: '300px',
         width: '400px',
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         fontSize: '14px',
         textAlign: 'center',
         color: '#707275',
@@ -39,12 +39,18 @@ export const stylesDatePicker = makeStyles(() => ({
         color: '#707275',
         fontSize: '14px',
         fontFamily: 'Work Sans',
+        height: '40px',
 
       },
      '& .MuiTextField-root':{
+        height: '40px',
         display: 'flex',            // Añadir estas propiedades
         justifyContent: 'center',   // para centrar horizontalmente
         alignItems: 'center',   
+     },
+     '& .css-z3c6am-MuiFormControl-root-MuiTextField-root': {
+      height: '40px',
+      backgroundColor: '#678493'
      }
     },
   }));

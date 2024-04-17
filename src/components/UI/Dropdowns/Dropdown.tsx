@@ -25,7 +25,7 @@ export const SelectInput = ({
     selected,
     required = false,
     text,
-    onInputChange = e => { },
+    onInputChange = (e: any) => { },
     loadOptions,
     isDisabled = false,
 }: any) => {
