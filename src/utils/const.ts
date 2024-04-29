@@ -22,6 +22,9 @@ export const stylesDatePicker = makeStyles(() => ({
         '&.Mui-focused': {
             color: '#707275',
             fontSize: '14px',
+            '& .MuiInputLabel-root':{
+              color: '#EB591B',
+            },
           '& fieldset': {
             borderWidth: '1px 1px 1px 1px',
             borderColor: '#838383',
@@ -38,11 +41,11 @@ export const stylesDatePicker = makeStyles(() => ({
         fontSize: '14px',
       },
       '& .MuiInputLabel-root': {
-        color: '#707275',
-        fontSize: '14px',
+        color: '#EB591B',
+        fontSize: '15px',
         fontFamily: 'Work Sans',
         height: '20px',
-        backgroundColor: '#232435',
+       
         
 
       },
@@ -53,16 +56,16 @@ export const stylesDatePicker = makeStyles(() => ({
         justifyContent: 'center',   
         alignItems: 'center',   
      },
-    '& .MuiInputBase-input':{
-      backgroundColor: '#232435',
-     },
-     '& .MuiOutlinedInput-input':{
-      backgroundColor: '#EB591B',
-     },
-     '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':{
-      backgroundColor: '#FFFB00',
-      height: '20px',
-     }
+    // '& .MuiInputBase-input':{
+    //   backgroundColor: '#232435',
+    //  },
+    //  '& .MuiOutlinedInput-input':{
+    //   backgroundColor: '#EB591B',
+    //  },
+    //  '& .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input':{
+    //   backgroundColor: '#FFFB00',
+    //   height: '20px',
+    //  }
     
     },
   }));

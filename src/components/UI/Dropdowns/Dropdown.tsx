@@ -1,63 +1,28 @@
 'use client'
 import * as React from 'react';
-import Select, { Theme } from 'react-select';
+import TextField, { FilledTextFieldProps, OutlinedTextFieldProps, StandardTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
+import { alpha, styled } from '@mui/material/styles';
 
-const themeSelect =  (theme: Theme) => ({
-    ...theme,
-    colors: {
-        ...theme.colors,
-        primary: '#4D4D4D',
-        primary50: '#FFFFFF',
-        primary25: '#FFFFFF',
-        danger: '#29CAE5',
-        dangerLight: '#29CAE5',
-        neutral0: '#FFFFFF', // background
-        neutral30: '#4D4D4D', // hover:border
-        neutral40: '#4D4D4D', // hover:icons
-        neutral60: '#4D4D4D', // focus:icons
-    },
-});
 
-const stylesSelect = {
-    container: (styles: any) => ({
-        ...styles,
-        marginTop: '0 !important',
-        marginLeft: '1px !important',
-        marginRight: '2px !important',
+const AutocompleteStyled = styled(Autocomplete)<AutocompleteProps>(({ theme }) => ({
+    color: theme.palette.success.main,
 
-    }),
-    control: (styles: any) => ({
-        ...styles,
+    '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline  ': {
+        height: '50px',
+        borderColor: '#707275',
         borderRadius: '7px',
-        borderColor: '#838383',
-    }),
-    dropdownIndicator: (styles: any) => ({
-        ...styles,
-        color: '#838383',
-    }),
-    singleValue: (styles: any) => ({
-        ...styles,
-        color: '#838383',
-    }),
-    menuList: (styles: any) => ({
-        ...styles,
-        color: '#29CAE5',
-    }),
-    placeholder: (styles: any) => ({
-        ...styles,
-        color: '#838383',
-        fontFamily: 'Work Sans',
-        fontSize: '14px',
-    }),
-    multiValueLabel: (styles: any) => ({
-        ...styles,
-        color: '#838383',
-    }),
+        '& .Mui-focused': {
+            borderColor: 'red !important',
+        },
+    },
+    '& .MuiInputLabel-root ': {
+        color: '#707275',
+        fontSize: '14px',     // Cambiar tamaño de fuente
+        fontFamily: 'Work Sans',  // Cambiar familia de fuente
+    },
 
-    indicatorSeparator: (styles: any) => ({ ...styles, display: 'none' }),
-    menuPortal: (base: any) => ({ ...base, zIndex: 9999, position: 'absolute' }),
-};
-
+}));
 export const SelectInput = ({
     isMulti = true,
     defaultOptions,
@@ -77,37 +42,34 @@ export const SelectInput = ({
                 {text}
                 {required && <span className='text-red-900'> * </span>}
             </span>
-            <Select
-                menuPosition='fixed'
-                menuPortalTarget={document?.body}
-                isMulti={isMulti}
-                options={defaultOptions || []}
-                name={name}
-                placeholder={placeholder}
+            <AutocompleteStyled
                 value={selected}
-                isDisabled={isDisabled}
-                getOptionLabel={e => e.label}
-                getOptionValue={e => e.value}
-                // onFocus={() => {
-                //     loadOptions('');
-                // }}
-                // onInputChange={e => {
-                //     //if (e.length > 2) {
-                //     loadOptions(e);
-                //     //}
-                // }}
-                onChange={
-                    isMulti
-                        ? (selected: any): void => {
-                            setSelected(selected);
-                        }
-                        : (selected: any): void => {
-                            setSelected(selected);
-                        }
-                }
-                styles={stylesSelect}
-                theme={themeSelect}
+                onChange={isMulti
+                    ? (selected: any): void => {
+                        setSelected(selected);
+                    }
+                    : (selected: any): void => {
+                        setSelected(selected);
+                    }}
+                onInputChange={e => {
+                    if (loadOptions) {
+                        loadOptions(e);
+                    }
+                    //if (e.length > 2) { 
+                    //}
+                }}
+                onFocus={() => {
+                    if (loadOptions) {
+                        loadOptions('');
+                    }
+                }}
+                id="controllable-states-demo"
+                options={defaultOptions}
+                fullWidth
+                sx={{}}
+                renderInput={(params: React.JSX.IntrinsicAttributes & { variant?: TextFieldVariants | undefined; } & Omit<FilledTextFieldProps | OutlinedTextFieldProps | StandardTextFieldProps, "variant">) => <TextField {...params} label="Controllable" />}
             />
+
         </div>
     );
 };
