@@ -14,6 +14,6 @@ export default function Home() {
   console.log("data ", data)
 
   return (
-    <div className="flex flex-col w-full min-h-screen p-20 items-center justify-center">hola </div>
+    <div className="flex flex-col w-full min-h-screen p-20 items-center justify-center"> landing page </div>
   );
 }
