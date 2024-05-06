@@ -1,6 +1,6 @@
 'use client'
 import { signIn } from 'next-auth/react';
-import LoadingCustom from '@/src/components/UI/Loading/loading';
+import LoadingCustom from '@/src/components/UI/Loading/Loading';
 import { useEffect } from 'react';
 const SignIn = () => {
     useEffect(() => { signIn('auth0'); }, [])

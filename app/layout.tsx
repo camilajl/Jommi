@@ -7,6 +7,7 @@ import { NextAuthProvider } from '@/src/providers/AuthProvider';
 import { authOptions } from "@/config/auth";
 import { getServerSession } from "next-auth";
 import PrivateRoute from '@/src/routing/PrivateRoute';
+import { ApolloWrapper } from "@/src/graphql/apollo-wrapers";
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -27,15 +28,17 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MuiThemeProvider>
-          <NextAuthProvider session={session}>
-            <PrivateRoute
-              rejected={false}
-              isPublic={false}
-              session={session}
-            >
-              {children}
-            </PrivateRoute>
-          </NextAuthProvider>
+          <ApolloWrapper>
+            <NextAuthProvider session={session}>
+              <PrivateRoute
+                rejected={false}
+                isPublic={false}
+                session={session}
+              >
+                {children}
+              </PrivateRoute>
+            </NextAuthProvider>
+          </ApolloWrapper>
         </MuiThemeProvider>
       </body>
     </html>

@@ -1,8 +1,19 @@
+"use client"
+import { gql, useQuery } from "@apollo/client";
+
+const HELLO = gql`
+query Query {
+  hello
+}
+`;
 
 export default function Home() {
+  const { data } = useQuery(HELLO, {
+    fetchPolicy: "network-only",
+  });
+  console.log("data ", data)
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      LADING PAGE
-    </main>
+    <div className="flex flex-col w-full min-h-screen p-20 items-center justify-center">hola </div>
   );
 }
