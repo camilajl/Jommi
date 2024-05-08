@@ -3,10 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { MuiThemeProvider } from "@/src/providers/MuiThemeProvider";
-import { NextAuthProvider } from '@/src/providers/AuthProvider';
-import { authOptions } from "@/config/auth";
-import { getServerSession } from "next-auth";
-import PrivateRoute from '@/src/routing/PrivateRoute';
+import { ApolloWrapper } from "@/src/graphql/apollo-wrapers";
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -22,20 +19,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body className={inter.className}>
         <MuiThemeProvider>
-          <NextAuthProvider session={session}>
-            <PrivateRoute
-              rejected={false}
-              isPublic={false}
-              session={session}
-            >
-              {children}
-            </PrivateRoute>
-          </NextAuthProvider>
+          <ApolloWrapper>
+            {children}
+          </ApolloWrapper>
         </MuiThemeProvider>
       </body>
     </html>
