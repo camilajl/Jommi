@@ -70,10 +70,48 @@ export const stylesDatePicker = makeStyles(() => ({
     },
   }));
 
+  const routes = [
+    {
+    id: 1,
+    name: 'Inicio',
+    path: '/app/servicios/',
+    iconCategory: 'fluent:home-48-filled'
+},
+{
+    id: 2,
+    name: 'Servicios',
+    path: '/app/servicios',
+    iconCategory:'mdi:account-service'
+    
+},
+{
+    id: 3,
+    name: 'Usuarios',
+    path: '/app/users',
+    iconCategory:'gridicons:multiple-users'
+    
+},
+{
+    id: 4,
+    name: 'Perfil',
+    path: '/app/perfil',
+    iconCategory:'mingcute:profile-fill'
+},
+{
+    id: 5,
+    name: 'Soporte',
+    path: '/app/soporte',
+    iconCategory:'streamline:customer-support-1-solid'
+},
+
+
+]
+
 
 export {
     PRIMARY_COLOR,
     SECONDARY_COLOR,
     TERTIARY_COLOR,
-    WHITE
+    WHITE,
+    routes
 }

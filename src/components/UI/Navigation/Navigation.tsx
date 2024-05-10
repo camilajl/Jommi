@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 
 const Navigation = () => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
 
     return (
         <div>
