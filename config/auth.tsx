@@ -25,6 +25,7 @@ export const authOptions: NextAuthOptions = {
             if (!newSession) {
                 return null
             }
+
             return newSession;
         },
     },
