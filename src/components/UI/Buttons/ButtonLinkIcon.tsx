@@ -19,7 +19,7 @@ export const ButtonLinkIcon = ({ path, text, iconCategory, iconColor, onClick }:
         color={iconColor}
         className='h-[16px] w-[16px] md:h-[24px] md:w-[24px]'
       />
-      <p className='font-primaryFont font-bold  text-lg text-white'>{text}</p>
+      <p className='font-primaryFont font-bold  text-lg text-white hover:text-tertiary hover:text-xl'>{text}</p>
     </Link>
 
   )

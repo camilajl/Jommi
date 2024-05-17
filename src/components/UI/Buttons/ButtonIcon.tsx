@@ -20,7 +20,7 @@ export const ButtonIcon = ({ text, iconCategory, iconColor, onClick, extraClassN
           className='h-[16px] w-[16px] md:h-[24px] md:w-[24px]'
         />
         {text ?
-          <p className={`font-primaryFont font-bold text-sm lg:text-lg text-white ${extraClassName}`}>{text}</p> : null}
+          <p className={`font-primaryFont font-bold text-sm lg:text-lg  ${extraClassName}`}>{text}</p> : null}
       </div>
     </button>
 

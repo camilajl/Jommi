@@ -22,7 +22,7 @@ const Sidebar = ({ open, setOpen }) => {
                     </div>
                 </div>
                 <div className={`flex justify-center md:justify-start  `}>
-                    <ButtonIcon text='Cerrar sesión' iconCategory={'clarity:power-solid'} iconColor={'#EB591B'} extraClassName='text-jommi_red'
+                    <ButtonIcon text='Cerrar sesión' iconCategory={'clarity:power-solid'} iconColor={'#EB591B'} extraClassName='text-jommi_red hover:text-xl'
                         onClick={() => {
                             signOut()
                         }} />

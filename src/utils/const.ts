@@ -74,13 +74,13 @@ export const stylesDatePicker = makeStyles(() => ({
     {
     id: 1,
     name: 'Inicio',
-    path: '/app/servicios/',
+    path: '/app',
     iconCategory: 'fluent:home-48-filled'
 },
 {
     id: 2,
     name: 'Servicios',
-    path: '/app/servicios',
+    path: '/app/jobs',
     iconCategory:'mdi:account-service'
     
 },
@@ -94,13 +94,13 @@ export const stylesDatePicker = makeStyles(() => ({
 {
     id: 4,
     name: 'Perfil',
-    path: '/app/perfil',
+    path: '/app/profile',
     iconCategory:'mingcute:profile-fill'
 },
 {
     id: 5,
     name: 'Soporte',
-    path: '/app/soporte',
+    path: '/app/support',
     iconCategory:'streamline:customer-support-1-solid'
 },
 
