@@ -1,7 +1,4 @@
 import { gql } from 'apollo-server';
-import { UserTypes } from 'graphql/customResolvers/users/types';
-import { RoleTypes } from 'graphql/customResolvers/role/types';
-import { AccountTypes } from 'graphql/customResolvers/account/types';
 
 const generals = gql`
   scalar number
@@ -65,4 +62,4 @@ const generals = gql`
     insensitive
   }
 `;
-export const customTypes = [UserTypes, RoleTypes, generals, AccountTypes];
+export const customTypes = [generals];

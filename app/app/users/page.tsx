@@ -1,12 +1,10 @@
-import { useSession } from 'next-auth/react';
-import { headers } from 'next/headers';
+import { checkRoleOnPage } from '@/src/utils/adminFunctions';
 import React from 'react'
 
 
-const Users = () => {
-    const headerList = headers();
-    const pathname = headerList.get("x-current-path");
-    console.log('pathname', headerList)
+const Users = async () => {
+
+    const a = await checkRoleOnPage()
     return (
         <div>hola</div>
     )

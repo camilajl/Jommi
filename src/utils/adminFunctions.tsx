@@ -2,16 +2,21 @@
 import { prisma } from '@/config/prisma';
 import { authOptions } from "@/config/auth";
 import { getServerSession } from "next-auth";
-import { middleware } from '../middleware';
+import { headers } from 'next/headers';
+
+export function getHeaderProp(headerProp: String) {
+    const headerList = headers();
+    const prop = headerList.get("x-current-path");
+    return prop ?? '';
+}
 
 
-export async function checkRoleOnPage(ctx) {
-    let url = ctx.resolvedUrl;
+export async function checkRoleOnPage(id?: string) {
+    let url = getHeaderProp("x-current-path");
+
     if (url.includes('?')) {
         [url] = url.split('?');
     }
-    const { id } = ctx.query;
-
     if (id) {
         url = url.replace(id, '[id]');
     }
@@ -37,5 +42,11 @@ export async function checkRoleOnPage(ctx) {
             },
         },
     });
-    return !roles;
+    return !!roles;
+}
+
+const a = () => {
+
+    return <div>no tienes acceso</div>
+
 }

@@ -5,7 +5,7 @@ import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import { alpha, styled } from '@mui/material/styles';
 
 
-const AutocompleteStyled = styled(Autocomplete)<AutocompleteProps>(({ theme }) => ({
+const AutocompleteStyled = styled(Autocomplete)<any>(({ theme }) => ({
     color: theme.palette.success.main,
 
     '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline  ': {

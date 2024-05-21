@@ -1,3 +1,3 @@
-import { UserResolvers } from 'graphql/customResolvers/users/resolvers';
 
+const UserResolvers = []
 export const customResolvers = [UserResolvers];

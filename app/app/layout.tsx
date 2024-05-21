@@ -22,18 +22,14 @@ export default async function RootLayout({
 
     const session = await getServerSession(authOptions);
     return (
-        <html lang="en">
-            <body className={inter.className}>
-                <NextAuthProvider session={session}>
-                    <PrivateRoute
-                        rejected={false}
-                        isPublic={false}
-                        session={session}
-                    >
-                        {children}
-                    </PrivateRoute>
-                </NextAuthProvider>
-            </body>
-        </html>
+        <NextAuthProvider session={session}>
+            <PrivateRoute
+                rejected={false}
+                isPublic={false}
+                session={session}
+            >
+                {children}
+            </PrivateRoute>
+        </NextAuthProvider>
     );
 }
