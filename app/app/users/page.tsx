@@ -1,9 +1,14 @@
+import { useSession } from 'next-auth/react';
+import { headers } from 'next/headers';
 import React from 'react'
 
-const Users = (ctx) => {
-    console.log("ctx ", ctx)
+
+const Users = () => {
+    const headerList = headers();
+    const pathname = headerList.get("x-current-path");
+    console.log('pathname', headerList)
     return (
-        <div>Users</div>
+        <div>hola</div>
     )
 }
 

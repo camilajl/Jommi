@@ -2,6 +2,8 @@
 import { prisma } from '@/config/prisma';
 import { authOptions } from "@/config/auth";
 import { getServerSession } from "next-auth";
+import { middleware } from '../middleware';
+
 
 export async function checkRoleOnPage(ctx) {
     let url = ctx.resolvedUrl;
