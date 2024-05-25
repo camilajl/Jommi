@@ -1,13 +1,8 @@
-import { checkRoleOnPage } from '@/src/utils/adminFunctions';
-import React from 'react'
+import { checkAccess, checkRoleOnPage } from "@/src/utils/adminFunctions";
+import React from "react";
 
+const Users = () => {
+  return <div>hola</div>;
+};
 
-const Users = async () => {
-
-    const a = await checkRoleOnPage()
-    return (
-        <div>hola</div>
-    )
-}
-
-export default Users
+export default Users;
