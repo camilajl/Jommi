@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import Navigation from '../UI/Navigation/Navigation'
+import React, { useState } from "react";
+import Navigation from "../UI/Navigation/Navigation";
 
 const MainLayout = ({ children }) => {
-    return (
-        <div className='h-screen flex flex-row  w-full relative '>
+  return (
+    <div className="h-screen flex flex-row bg-black w-full relative ">
+      <Navigation />
+      <div className="pt-[60px] sm:pt-0 h-full  border-primary border w-full">
+        {children}
+      </div>
+    </div>
+  );
+};
 
-            <Navigation />
-            <div className='pt-[60px] sm:pt-0 h-full  border-red-100 border w-full'>
-                {children}
-            </div>
-
-        </div>
-    )
-}
-
-export default MainLayout
+export default MainLayout;

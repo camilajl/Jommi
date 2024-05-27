@@ -1,5 +1,5 @@
+import { backdropClasses } from "@mui/material";
 import type { Config } from "tailwindcss";
-
 
 const config: Config = {
   content: [
@@ -7,13 +7,11 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx,html}",
-    "./node_modules/tw-elements/js/**/*.js"
+    "./node_modules/tw-elements/js/**/*.js",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-
-      },
+      backgroundImage: {},
       colors: {
         primary: "#4D4D4D",
         black: "#000000",
@@ -29,11 +27,14 @@ const config: Config = {
         blackish_grey: "#1A1A1A",
         jommi_purple: "#9747FF",
         jommi_purple_plus: "#742BD3",
-        "purple-custom": "#231127"
+        "purple-custom": "#231127",
+        tertiaryGrey: "#505050",
+        backgroundGrey: "#1E1E1E",
+        tableTitleColor: "#F9F9F9",
       },
       fontFamily: {
-        primaryFont: ["Work Sans", 'sans-serif'],
-      }
+        primaryFont: ["Work Sans", "sans-serif"],
+      },
     },
   },
   plugins: [require("tw-elements/plugin.cjs")],
