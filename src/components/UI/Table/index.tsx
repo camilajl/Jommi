@@ -1,14 +1,14 @@
 import React from "react";
 
-interface ComponentProps {
+interface TableProps {
   thead: string[];
   children?: React.ReactNode;
 }
 
-const Table = ({ thead, children }: ComponentProps) => (
+const Table = ({ thead, children }: TableProps) => (
   <div className="relative w-full">
     <div className="overflow-x-auto px-1 pb-3">
-      <table className=" table-auto w-full">
+      <table className=" table-fixed w-full">
         {/* Table header */}
         <thead className="thead_table">
           <tr>

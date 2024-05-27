@@ -5,7 +5,7 @@ const MainLayout = ({ children }) => {
   return (
     <div className="h-screen flex flex-row bg-black w-full relative ">
       <Navigation />
-      <div className="pt-[60px] sm:pt-0 h-full  border-primary border w-full">
+      <div className="pt-[60px] px-10 sm:pt-10 h-full  border-primary border w-full">
         {children}
       </div>
     </div>

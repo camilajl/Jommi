@@ -12,7 +12,7 @@ const Navigation = () => {
     <div className="transition-all ease-in-out delay-150  ">
       <Sidebar open={open} setOpen={setOpen} />
       <div className="fixed sm:hidden  top-0 right-0 w-12 h-[40px] flex items-center justify-end">
-        <div className="w-[100px]">
+        <div className="w-[100px] flex justify-center">
           <ButtonIcon
             iconCategory={"charm:menu-hamburger"}
             iconColor={"#505050"}

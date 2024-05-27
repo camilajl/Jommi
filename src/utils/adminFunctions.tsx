@@ -28,13 +28,12 @@ export async function checkRoleOnPage(id?: string) {
         },
         roles: {
           some: {
-            role: {
-              users: {
-                some: {
-                  userId: session?.user.id,
-                },
+            users: {
+              some: {
+                id: session?.user.id,
               },
             },
+
           },
         },
       },
