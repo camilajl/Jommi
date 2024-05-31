@@ -19,9 +19,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -50,11 +53,11 @@ body {
   }
 
   .thead_table {
-    @apply sticky top-0 right-0 font-primaryFont text-tableTitleColor border text-sm text-start border-primary;
+    @apply sticky top-0 right-0 font-primaryFont text-tableTitleColor border text-lg 2xl:text-xl text-start border-primary;
   }
 
   .tbody_table {
-    @apply divide-transparent text-tertiaryGrey font-semibold font-primaryFont;
+    @apply divide-transparent text-white text-base 2xl:text-lg font-primaryFont;
   }
 
   .threeDots {

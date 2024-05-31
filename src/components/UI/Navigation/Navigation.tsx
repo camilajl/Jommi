@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { isMobile } from "@/src/utils/functions";
 import { ButtonIcon } from "../Buttons/ButtonIcon";
+import { useIsMobile } from "@/src/hooks/useIsMobile";
 
 const Navigation = () => {
-  var tipoDispositivo = isMobile();
-  const [open, setOpen] = useState(!tipoDispositivo);
+  const { isMobileDevice } = useIsMobile();
+  const [open, setOpen] = useState(!isMobileDevice);
 
   return (
     <div className="transition-all ease-in-out delay-150  ">

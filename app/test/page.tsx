@@ -1,14 +1,10 @@
-import { prisma } from '@/config/prisma'
-import React from 'react'
+import { prisma } from "@/config/prisma";
+import React from "react";
 
 const page = async () => {
-    const allUsers = await prisma.user.findMany()
-    console.log("QUERY ", allUsers)
-    return (
-        <div>page
+  // const allUsers = await prisma.user.findMany()
+  // console.log("QUERY ", allUsers)
+  return <div>page</div>;
+};
 
-        </div>
-    )
-}
-
-export default page
+export default page;

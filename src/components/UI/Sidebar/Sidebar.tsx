@@ -8,7 +8,6 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { ButtonIcon } from "../Buttons/ButtonIcon";
 
 const Sidebar = ({ open, setOpen }) => {
-  console.log("open ", open);
   return (
     <>
       <div
