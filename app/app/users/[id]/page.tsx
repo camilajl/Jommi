@@ -1,15 +1,9 @@
-import { checkRoleOnPage } from '@/src/utils/adminFunctions'
-import React from 'react'
+import UserForm from "@/src/components/Pages/App/Users/UserForm";
+import { checkRoleOnPage } from "@/src/utils/adminFunctions";
+import React from "react";
 
-const User = async ({ params, searchParams }: { params: { id: string }, searchParams: { condition: string } }) => {
+const User = () => {
+  return <UserForm />;
+};
 
-    const a = await checkRoleOnPage()
-    if (a === false) {
-        return <div>NO TIENES ACCESO</div>
-    }
-    return (
-        <div>User</div>
-    )
-}
-
-export default User
+export default User;

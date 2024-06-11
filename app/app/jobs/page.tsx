@@ -1,9 +1,8 @@
-import React from 'react'
+import JobsPage from "@/src/components/Pages/App/Jobs";
+import React from "react";
 
-const Servicios = () => {
-  return (
-    <div>Servicios</div>
-  )
-}
+const Jobs = () => {
+  return <JobsPage />;
+};
 
-export default Servicios;
+export default Jobs;

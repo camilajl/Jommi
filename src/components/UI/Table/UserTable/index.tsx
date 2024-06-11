@@ -21,7 +21,11 @@ const UserTable = ({ users }: TableUserProps) => {
     <Table thead={isMobileDevice ? theadMobile : thead}>
       {users?.map((item, idx) => (
         <tr
-          className={idx % 2 === 0 ? "bg-black " : "bg-backgroundGrey"}
+          className={
+            idx % 2 === 0
+              ? "bg-white dark:bg-black "
+              : "bg-tertiary_grey dark:bg-backgroundGrey"
+          }
           key={item.id}
         >
           <td className="threeDots">{item?.name}</td>
@@ -34,8 +38,7 @@ const UserTable = ({ users }: TableUserProps) => {
                 iconCategory={
                   item?.enabled ? "icon-park-solid:check-one" : "gg:close-o"
                 }
-                iconColor={item?.enabled ? "#F1DB4B" : "#ffffff"}
-                iconExtraClassName={"h-[30px] w-[30px]"}
+                iconExtraClassName={`h-[30px] w-[30px] ${item?.enabled ? " text-jommi_purple dark:text-tertiary" : " text-soft_grey dark:text-white"}`}
               />
             </td>
           )}
@@ -44,14 +47,16 @@ const UserTable = ({ users }: TableUserProps) => {
             <div className="flex  md:gap-2">
               <ButtonIcon
                 iconCategory={"material-symbols:edit-outline"}
-                iconColor={"#ffffff"}
-                iconExtraClassName={"h-[25px] w-[25px] md:h-[30px] md:w-[30px]"}
+                iconExtraClassName={
+                  "h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white"
+                }
                 // onClick={() => router.push(`/app/app/users/${item?.id}`)}
               />
               <ButtonIcon
                 iconCategory={"material-symbols:delete-outline"}
-                iconColor={"#ffffff"}
-                iconExtraClassName={"h-[25px] w-[25px] md:h-[30px] md:w-[30px]"}
+                iconExtraClassName={
+                  "h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white"
+                }
               />
             </div>
           </td>
