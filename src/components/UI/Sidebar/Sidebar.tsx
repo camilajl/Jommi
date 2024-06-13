@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { ButtonLink } from "../Buttons/ButtonLink";
-import Button from "../Buttons/Button";
+import React from "react";
 import { signOut } from "next-auth/react";
 import { routes } from "@/src/utils/const";
 import { ButtonLinkIcon } from "../Buttons/ButtonLinkIcon";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { ButtonIcon } from "../Buttons/ButtonIcon";
 
-const Sidebar = ({ open, setOpen }) => {
+interface SidebarInterface {
+  open: boolean
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Sidebar = ({ open }: SidebarInterface) => {
   return (
     <>
       <div

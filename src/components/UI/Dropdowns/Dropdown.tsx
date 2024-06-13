@@ -51,7 +51,7 @@ export const SelectInput = ({
                     : (selected: any): void => {
                         setSelected(selected);
                     }}
-                onInputChange={e => {
+                onInputChange={(e: React.FormEvent<HTMLInputElement>) => {
                     if (loadOptions) {
                         loadOptions(e);
                     }

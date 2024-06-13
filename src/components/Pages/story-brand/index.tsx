@@ -15,17 +15,15 @@ const StoryBrandPage = ({ }: BrandPageType) => {
     //recibe query y retorna resultados del query
 
     const [options, setOptions] = useState([])
-    const [selectedOption, setSelectedOption] = useState(null)
     const pokemons = async (limit = 40) => {
         try {
             const staticData = await fetch(`https://pokeapi.co/api/v2/pokemon-species?limit=${limit}&offset=0`).then(async data => {
                 const res = await data.json()
-                return setOptions(res.results.map((el) => { return { value: el.url, label: el.name } }))
+                return setOptions(res.results.map((el: any) => { return { value: el.url, label: el.name } }))
             }).catch((err) => {
             });
             return staticData
-        } catch (e) {
-            console.log("e ", e)
+        } catch {
         }
     }
 

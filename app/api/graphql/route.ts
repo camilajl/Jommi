@@ -7,24 +7,14 @@ import { NextRequest } from 'next/server';
 import { prisma } from '@/config/prisma';
 import { authOptions } from "@/config/auth";
 import { gql } from '@apollo/client';
-const resolvers = {
-    Query: {
-        hello: () => 'world',
-    },
-};
+import { schema } from "@/backendSrc/schema";
 
-const typeDefs = gql`
-    type Query {
-      hello: String
-    }
-  `;
+
 const startServer = async (req: any) => {
     const session = await getServerSession(authOptions);
     const apolloServer = new ApolloServer<BaseContext>({
-        resolvers,
-        typeDefs,
+        schema: schema,
         introspection: true,
-
     });
     //podemos validar aquí la sessión 
     return await startServerAndCreateNextHandler<NextRequest>(apolloServer, {

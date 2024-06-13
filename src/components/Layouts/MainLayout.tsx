@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Navigation from "../UI/Navigation/Navigation";
 
-const MainLayout = ({ children }) => {
+interface MainLayoutInteface {
+  children: React.ReactNode
+}
+
+const MainLayout = ({ children }: MainLayoutInteface) => {
   return (
     <div className="h-screen flex flex-row bg-black w-full relative ">
       <Navigation />
