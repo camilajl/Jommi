@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 export interface ButtonLinkType {
   text?: string;
   iconCategory: string;
-  iconColor: string;
+  iconColor?: string;
   onClick?: () => void;
   extraClassName?: string;
   iconExtraClassName?: string;

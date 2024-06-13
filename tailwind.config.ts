@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundOpacity: {
+        "20": "0.20",
+      },
       backgroundImage: {},
       colors: {
         primary: "#4D4D4D",

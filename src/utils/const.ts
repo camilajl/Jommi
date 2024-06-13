@@ -1,61 +1,57 @@
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from "@mui/styles";
 
-
-const PRIMARY_COLOR = '#4059AD'
-const SECONDARY_COLOR = '#6B9AC4'
-const TERTIARY_COLOR = '#F4B942'
-const WHITE = '#EFF2F1'
+const PRIMARY_COLOR = "#4059AD";
+const SECONDARY_COLOR = "#6B9AC4";
+const TERTIARY_COLOR = "#F4B942";
+const WHITE = "#EFF2F1";
 
 export const stylesDatePicker = makeStyles(() => ({
-    custom: {
-        '& .MuiFormControl-root':{
-            height: '20px',
+  custom: {
+    "& .MuiFormControl-root": {
+      height: "20px",
+    },
+    "& .MuiInputBase-root": {
+      height: "40px",
+      minWidth: "300px",
+      width: "400px",
+      backgroundColor: "transparent",
+      fontSize: "14px",
+      textAlign: "center",
+      color: "#707275",
+      "&.Mui-focused": {
+        color: "#707275",
+        fontSize: "14px",
+        "& .MuiInputLabel-root": {
+          color: "#EB591B",
         },
-      '& .MuiInputBase-root': {
-        height: '40px',
-        minWidth: '300px',
-        width: '400px',
-        backgroundColor: 'transparent',
-        fontSize: '14px',
-        textAlign: 'center',
-        color: '#707275',
-        '&.Mui-focused': {
-            color: '#707275',
-            fontSize: '14px',
-            '& .MuiInputLabel-root':{
-              color: '#EB591B',
-            },
-          '& fieldset': {
-            borderWidth: '1px 1px 1px 1px',
-            borderColor: '#838383',
-            color: '#707275',
-            fontSize: '14px',
-          },
+        "& fieldset": {
+          borderWidth: "1px 1px 1px 1px",
+          borderColor: "#838383",
+          color: "#707275",
+          fontSize: "14px",
         },
       },
-      '& .MuiOutlinedInput-notchedOutline': {
-        borderRadius: '7px',
-        borderWidth: '1px 1px 1px 1px',
-        borderColor: '#707275',
-        color: '#707275',
-        fontSize: '14px',
-      },
-      '& .MuiInputLabel-root': {
-        color: '#EB591B',
-        fontSize: '15px',
-        fontFamily: 'Work Sans',
-        height: '20px',
-       
-        
-
-      },
-     '& .MuiTextField-root':{
-        color: '#707275',
-        height: '20px',
-        display: 'flex',            
-        justifyContent: 'center',   
-        alignItems: 'center',   
-     },
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderRadius: "7px",
+      borderWidth: "1px 1px 1px 1px",
+      borderColor: "#707275",
+      color: "#707275",
+      fontSize: "14px",
+    },
+    "& .MuiInputLabel-root": {
+      color: "#EB591B",
+      fontSize: "15px",
+      fontFamily: "Work Sans",
+      height: "20px",
+    },
+    "& .MuiTextField-root": {
+      color: "#707275",
+      height: "20px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
     // '& .MuiInputBase-input':{
     //   backgroundColor: '#232435',
     //  },
@@ -66,52 +62,67 @@ export const stylesDatePicker = makeStyles(() => ({
     //   backgroundColor: '#FFFB00',
     //   height: '20px',
     //  }
-    
-    },
-  }));
+  },
+}));
 
-  const routes = [
-    {
+const routes = [
+  {
     id: 1,
-    name: 'Inicio',
-    path: '/app',
-    iconCategory: 'fluent:home-48-filled'
-},
-{
+    name: "Inicio",
+    path: "/app",
+    iconCategory: "fluent:home-48-filled",
+  },
+  {
     id: 2,
-    name: 'Servicios',
-    path: '/app/jobs',
-    iconCategory:'mdi:account-service'
-    
-},
-{
+    name: "Servicios",
+    path: "/app/jobs",
+    iconCategory: "mdi:account-service",
+  },
+  {
     id: 3,
-    name: 'Usuarios',
-    path: '/app/users',
-    iconCategory:'gridicons:multiple-users'
-    
-},
-{
+    name: "Usuarios",
+    path: "/app/users",
+    iconCategory: "gridicons:multiple-users",
+  },
+  {
     id: 4,
-    name: 'Perfil',
-    path: '/app/profile',
-    iconCategory:'mingcute:profile-fill'
-},
-{
+    name: "Perfil",
+    path: "/app/profile",
+    iconCategory: "mingcute:profile-fill",
+  },
+  {
     id: 5,
-    name: 'Soporte',
-    path: '/app/support',
-    iconCategory:'streamline:customer-support-1-solid'
-},
+    name: "Soporte",
+    path: "/app/support",
+    iconCategory: "streamline:customer-support-1-solid",
+  },
+];
 
+export const jobCardItems = [
+  {
+    id: 1,
+    name: "Plomería",
+    backgroundColor: "bg-jommi_blue",
+    iconCategory: "material-symbols:plumbing",
+  },
+  {
+    id: 2,
+    name: "Electricidad",
+    backgroundColor: "bg-tertiary",
+    iconCategory: "healthicons:electricity",
+  },
+  {
+    id: 3,
+    name: "Construcción",
+    backgroundColor: "bg-jommi_red",
+    iconCategory: "f7:hammer-fill",
+  },
+  {
+    id: 4,
+    name: "Limpieza",
+    backgroundColor: "bg-jommi_green",
+    iconCategory: "mdi:cleaning",
+  },
+];
 
-]
-
-
-export {
-    PRIMARY_COLOR,
-    SECONDARY_COLOR,
-    TERTIARY_COLOR,
-    WHITE,
-    routes
-}
+export { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR, WHITE, routes };

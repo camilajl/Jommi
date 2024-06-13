@@ -53,11 +53,11 @@ body {
   }
 
   .thead_table {
-    @apply sticky top-0 right-0 font-primaryFont text-tableTitleColor border text-lg 2xl:text-xl text-start border-primary;
+    @apply sticky top-0 right-0 font-primaryFont text-black dark:text-white border   text-lg 2xl:text-xl text-start border-primary;
   }
 
   .tbody_table {
-    @apply divide-transparent text-white text-base 2xl:text-lg font-primaryFont;
+    @apply divide-transparent text-black dark:text-white text-base 2xl:text-lg font-primaryFont border border-primary;
   }
 
   .threeDots {

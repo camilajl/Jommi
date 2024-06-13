@@ -1,75 +1,101 @@
-'use client'
-import * as React from 'react';
-import TextField, { FilledTextFieldProps, OutlinedTextFieldProps, StandardTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
-import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
-import { alpha, styled } from '@mui/material/styles';
+"use client";
+import * as React from "react";
+import TextField, {
+  FilledTextFieldProps,
+  OutlinedTextFieldProps,
+  StandardTextFieldProps,
+  TextFieldVariants,
+} from "@mui/material/TextField";
+import Autocomplete, { AutocompleteProps } from "@mui/material/Autocomplete";
+import { alpha, styled } from "@mui/material/styles";
 
-
-const AutocompleteStyled = styled(Autocomplete)<any>(({ theme }) => ({
-    color: theme.palette.success.main,
-
-    '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline  ': {
-        height: '50px',
-        borderColor: '#707275',
-        borderRadius: '7px',
-        '& .Mui-focused': {
-            borderColor: 'red !important',
-        },
+const AutocompleteStyled = styled(Autocomplete)(({ theme }) => ({
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "7px",
+    borderColor: "#707275",
+    backgroundColor: "transparent",
+    "&:hover .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.primary.main,
     },
-    '& .MuiInputLabel-root ': {
-        color: '#707275',
-        fontSize: '14px',     // Cambiar tamaño de fuente
-        fontFamily: 'Work Sans',  // Cambiar familia de fuente
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.primary.main,
     },
-
+    "&.Mui-disabled": {
+      backgroundColor: "rgba(0, 0, 0, 0.12)",
+    },
+    paddingTop: "8px",
+    paddingBottom: "8px",
+    paddingLeft: "8px",
+    paddingRight: "8px",
+  },
+  "& .MuiInputLabel-root": {
+    color: theme.palette.text.secondary,
+    fontFamily: "Work Sans",
+    fontSize: "14px",
+  },
+  "& .MuiAutocomplete-inputRoot": {
+    padding: "0px",
+  },
 }));
-export const SelectInput = ({
-    isMulti = true,
-    defaultOptions,
-    setSelected,
-    name,
-    placeholder,
-    selected,
-    required = false,
-    text,
-    onInputChange = (e: any) => { },
-    loadOptions,
-    isDisabled = false,
-}: any) => {
-    return (
-        <div className='w-full'>
-            <span>
-                {text}
-                {required && <span className='text-red-900'> * </span>}
-            </span>
-            <AutocompleteStyled
-                value={selected}
-                onChange={isMulti
-                    ? (selected: any): void => {
-                        setSelected(selected);
-                    }
-                    : (selected: any): void => {
-                        setSelected(selected);
-                    }}
-                onInputChange={(e: React.FormEvent<HTMLInputElement>) => {
-                    if (loadOptions) {
-                        loadOptions(e);
-                    }
-                    //if (e.length > 2) { 
-                    //}
-                }}
-                onFocus={() => {
-                    if (loadOptions) {
-                        loadOptions('');
-                    }
-                }}
-                id="controllable-states-demo"
-                options={defaultOptions}
-                fullWidth
-                sx={{}}
-                renderInput={(params: React.JSX.IntrinsicAttributes & { variant?: TextFieldVariants | undefined; } & Omit<FilledTextFieldProps | OutlinedTextFieldProps | StandardTextFieldProps, "variant">) => <TextField {...params} label="Controllable" />}
-            />
 
-        </div>
-    );
+export const SelectInput = ({
+  isMulti = true,
+  defaultOptions,
+  setSelected,
+  name,
+  placeholder,
+  selected,
+  required = false,
+  text,
+  onInputChange = (e: any) => { },
+  loadOptions,
+  isDisabled = false,
+  label,
+}: any) => {
+  return (
+    <div className="w-full">
+      <span className={` input_label`}>
+        {text}
+        {required && <span className="text-red-900"> * </span>}
+      </span>
+      <AutocompleteStyled
+        value={selected}
+        onChange={
+          isMulti
+            ? (selected: any): void => {
+              setSelected(selected);
+            }
+            : (selected: any): void => {
+              setSelected(selected);
+            }
+        }
+        onInputChange={(e) => {
+          if (loadOptions) {
+            loadOptions(e);
+          }
+          //if (e.length > 2) {
+          //}
+        }}
+        onFocus={() => {
+          if (loadOptions) {
+            loadOptions("");
+          }
+        }}
+        id="controllable-states-demo"
+        options={defaultOptions}
+        fullWidth
+        sx={{}}
+        renderInput={(
+          params: React.JSX.IntrinsicAttributes & {
+            variant?: TextFieldVariants | undefined;
+          } & Omit<
+            | FilledTextFieldProps
+            | OutlinedTextFieldProps
+            | StandardTextFieldProps,
+            "variant"
+          >
+        ) => <TextField {...params} label={label} />}
+      />
+    </div>
+  );
 };
