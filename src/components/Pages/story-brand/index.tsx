@@ -7,8 +7,6 @@ import InputNumber from '@/src/components/UI/Input/InputNumber';
 import { SelectInput } from '@/src/components/UI/Dropdowns/Dropdown';
 import Card from '@/src/components/UI/Card/Card';
 
-
-
 const StoryBrandPage = () => {
   //recibe query y retorna resultados del query
 
@@ -26,7 +24,7 @@ const StoryBrandPage = () => {
             })
           );
         })
-        .catch(() => { });
+        .catch(() => {});
       return staticData;
     } catch (e) {
       console.log('e ', e);

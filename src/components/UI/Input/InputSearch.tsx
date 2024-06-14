@@ -29,13 +29,12 @@ function InputSearch({
   disabled = false,
   onClick,
 }: InputType) {
-
-
   return (
     <label
       htmlFor={name}
-      className={`${children ? 'relative h-full' : 'flex flex-col'
-        } ${extraClassNames}`}
+      className={`${
+        children ? 'relative h-full' : 'flex flex-col'
+      } ${extraClassNames}`}
     >
       <span>
         {label}
@@ -46,8 +45,9 @@ function InputSearch({
           type={type}
           name={name}
           placeholder={placeholder}
-          className={`${disabled ? 'input__disabled' : 'input'} py-2 pl-2 ${type === 'text' ? 'pr-2' : 'pr-8'
-            } w-full rounded-[5px]`}
+          className={`${disabled ? 'input__disabled' : 'input'} py-2 pl-2 ${
+            type === 'text' ? 'pr-2' : 'pr-8'
+          } w-full rounded-[5px]`}
           required={required}
           onChange={onChange}
           value={value}

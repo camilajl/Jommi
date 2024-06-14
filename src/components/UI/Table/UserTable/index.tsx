@@ -52,7 +52,7 @@ const UserTable = ({ users }: TableUserProps) => {
                   iconExtraClassName={
                     'h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white'
                   }
-                // onClick={() => router.push(`/app/app/users/${item?.id}`)}
+                  // onClick={() => router.push(`/app/app/users/${item?.id}`)}
                 />
               </Link>
 

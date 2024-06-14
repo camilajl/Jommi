@@ -18,8 +18,7 @@ type InputDateType = {
   role?: string;
 };
 */
-const InputDate = (
-  /*{
+const InputDate = () => /*{
    label,
   name,
   disabled = false,
@@ -29,7 +28,7 @@ const InputDate = (
   value,
   onChange,
   role,  
-}: InputDateType*/) => {
+}: InputDateType*/ {
   const classes = stylesDatePicker();
 
   return (
@@ -46,7 +45,7 @@ const InputDate = (
           <DatePicker
             label='Date picker'
             className={classes?.custom}
-          // onChange={(newValue) => setValue(newValue)}
+            // onChange={(newValue) => setValue(newValue)}
           />
         </LocalizationProvider>
       </div>

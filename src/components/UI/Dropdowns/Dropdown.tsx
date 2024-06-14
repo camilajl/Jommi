@@ -59,11 +59,11 @@ export const SelectInput = ({
         onChange={
           isMulti
             ? (selected: any): void => {
-              setSelected(selected);
-            }
+                setSelected(selected);
+              }
             : (selected: any): void => {
-              setSelected(selected);
-            }
+                setSelected(selected);
+              }
         }
         onInputChange={(e) => {
           if (loadOptions) {
@@ -85,11 +85,11 @@ export const SelectInput = ({
           params: React.JSX.IntrinsicAttributes & {
             variant?: TextFieldVariants | undefined;
           } & Omit<
-            | FilledTextFieldProps
-            | OutlinedTextFieldProps
-            | StandardTextFieldProps,
-            'variant'
-          >
+              | FilledTextFieldProps
+              | OutlinedTextFieldProps
+              | StandardTextFieldProps,
+              'variant'
+            >
         ) => <TextField {...params} label={label} />}
       />
     </div>
