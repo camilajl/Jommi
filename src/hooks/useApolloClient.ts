@@ -8,9 +8,8 @@ import { CachePersistor, LocalStorageWrapper } from 'apollo3-cache-persist';
 
 const useApolloClient = () => {
   const [client, setClient] = useState<ApolloClient<NormalizedCacheObject>>();
-  const [persistor, setPersistor] = useState<
-    CachePersistor<NormalizedCacheObject>
-  >();
+  const [persistor, setPersistor] =
+    useState<CachePersistor<NormalizedCacheObject>>();
   useEffect(() => {
     async function init() {
       const cache = new InMemoryCache();

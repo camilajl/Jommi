@@ -1,5 +1,5 @@
-import React from "react";
-import { Icon } from "@iconify/react";
+import React from 'react';
+import { Icon } from '@iconify/react';
 
 export interface ButtonLinkType {
   text?: string;
@@ -19,8 +19,8 @@ export const ButtonIcon = ({
   iconExtraClassName,
 }: ButtonLinkType) => {
   return (
-    <button type="button" onClick={onClick} aria-label={iconCategory}  >
-      <div className="flex gap-x-3 items-center ">
+    <button type='button' onClick={onClick} aria-label={iconCategory}>
+      <div className='flex items-center gap-x-3'>
         <Icon
           icon={iconCategory}
           color={iconColor}
@@ -28,7 +28,7 @@ export const ButtonIcon = ({
         />
         {text ? (
           <p
-            className={`font-primaryFont font-bold text-sm lg:text-lg  ${extraClassName}`}
+            className={`font-primaryFont text-sm font-bold lg:text-lg ${extraClassName}`}
           >
             {text}
           </p>

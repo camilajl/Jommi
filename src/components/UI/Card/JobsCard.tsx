@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Card from "@/src/components/UI/Card/Card";
-import { Icon } from "@iconify/react";
-import React, { useState } from "react";
+import Card from '@/src/components/UI/Card/Card';
+import { Icon } from '@iconify/react';
+import React from 'react';
 
 interface JobsCardType {
   iconCategory: string;
@@ -16,22 +16,22 @@ const JobsCard = ({
 }: JobsCardType) => {
   return (
     <div>
-      <Card extraclassName="w-[250px] h-[115px]" contentExtraclassName="p-0">
+      <Card extraclassName='w-[250px] h-[115px]' contentExtraclassName='p-0'>
         <div
-          className={`flex justify-between ${backgroundColor} rounded-t-2xl p-3 h-[78px]`}
+          className={`flex justify-between ${backgroundColor} h-[78px] rounded-t-2xl p-3`}
         >
           <div>
             <Icon
               icon={iconCategory}
-              className={`h-[20px] w-[20px] md:h-[24px] md:w-[24px] text-primary `}
+              className={`h-[20px] w-[20px] text-primary md:h-[24px] md:w-[24px]`}
             />
           </div>
-          <p className="text-primary font-bold text-lg">{categoryName}</p>
+          <p className='text-lg font-bold text-primary'>{categoryName}</p>
         </div>
         <div
-          className={`flex justify-center items-center ${backgroundColor}  rounded-b-2xl p-3 h-[37px] bg-opacity-20 `}
+          className={`flex items-center justify-center ${backgroundColor} h-[37px] rounded-b-2xl bg-opacity-20 p-3`}
         >
-          <p className="text-primary text-base">Ver más</p>
+          <p className='text-base text-primary'>Ver más</p>
         </div>
       </Card>
     </div>

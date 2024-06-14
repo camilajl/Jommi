@@ -1,22 +1,18 @@
-'use client'
+'use client';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
+import React from 'react';
 
 const theme = createTheme({
-    palette: {
-        mode: 'light',  // Habilita el modo oscuro
-        // Otros colores personalizados para modo oscuro si es necesario
-    },
-
-}
-);
+  palette: {
+    mode: 'light', // Habilita el modo oscuro
+    // Otros colores personalizados para modo oscuro si es necesario
+  },
+});
 
 interface MuiThemeProviderInterface {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const MuiThemeProvider = ({ children }: MuiThemeProviderInterface) => {
-    return (
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    )
-}
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};

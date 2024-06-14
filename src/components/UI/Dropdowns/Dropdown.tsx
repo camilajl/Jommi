@@ -1,40 +1,40 @@
-"use client";
-import * as React from "react";
+'use client';
+import * as React from 'react';
 import TextField, {
   FilledTextFieldProps,
   OutlinedTextFieldProps,
   StandardTextFieldProps,
   TextFieldVariants,
-} from "@mui/material/TextField";
-import Autocomplete, { AutocompleteProps } from "@mui/material/Autocomplete";
-import { alpha, styled } from "@mui/material/styles";
+} from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { styled } from '@mui/material/styles';
 
 const AutocompleteStyled = styled(Autocomplete)(({ theme }) => ({
-  "& .MuiOutlinedInput-root": {
-    borderRadius: "7px",
-    borderColor: "#707275",
-    backgroundColor: "transparent",
-    "&:hover .MuiOutlinedInput-notchedOutline": {
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '7px',
+    borderColor: '#707275',
+    backgroundColor: 'transparent',
+    '&:hover .MuiOutlinedInput-notchedOutline': {
       borderColor: theme.palette.primary.main,
     },
-    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: theme.palette.primary.main,
     },
-    "&.Mui-disabled": {
-      backgroundColor: "rgba(0, 0, 0, 0.12)",
+    '&.Mui-disabled': {
+      backgroundColor: 'rgba(0, 0, 0, 0.12)',
     },
-    paddingTop: "8px",
-    paddingBottom: "8px",
-    paddingLeft: "8px",
-    paddingRight: "8px",
+    paddingTop: '8px',
+    paddingBottom: '8px',
+    paddingLeft: '8px',
+    paddingRight: '8px',
   },
-  "& .MuiInputLabel-root": {
+  '& .MuiInputLabel-root': {
     color: theme.palette.text.secondary,
-    fontFamily: "Work Sans",
-    fontSize: "14px",
+    fontFamily: 'Work Sans',
+    fontSize: '14px',
   },
-  "& .MuiAutocomplete-inputRoot": {
-    padding: "0px",
+  '& .MuiAutocomplete-inputRoot': {
+    padding: '0px',
   },
 }));
 
@@ -42,21 +42,17 @@ export const SelectInput = ({
   isMulti = true,
   defaultOptions,
   setSelected,
-  name,
-  placeholder,
   selected,
   required = false,
   text,
-  onInputChange = (e: any) => { },
   loadOptions,
-  isDisabled = false,
   label,
 }: any) => {
   return (
-    <div className="w-full">
-      <span className={` input_label`}>
+    <div className='w-full'>
+      <span className={`input_label`}>
         {text}
-        {required && <span className="text-red-900"> * </span>}
+        {required && <span className='text-red-900'> * </span>}
       </span>
       <AutocompleteStyled
         value={selected}
@@ -78,10 +74,10 @@ export const SelectInput = ({
         }}
         onFocus={() => {
           if (loadOptions) {
-            loadOptions("");
+            loadOptions('');
           }
         }}
-        id="controllable-states-demo"
+        id='controllable-states-demo'
         options={defaultOptions}
         fullWidth
         sx={{}}
@@ -92,7 +88,7 @@ export const SelectInput = ({
             | FilledTextFieldProps
             | OutlinedTextFieldProps
             | StandardTextFieldProps,
-            "variant"
+            'variant'
           >
         ) => <TextField {...params} label={label} />}
       />

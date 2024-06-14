@@ -1,5 +1,4 @@
-import { prisma } from "@/config/prisma";
-import React from "react";
+import React from 'react';
 
 const page = async () => {
   // const allUsers = await prisma.user.findMany()

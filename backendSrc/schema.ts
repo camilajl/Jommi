@@ -1,6 +1,6 @@
-import { builder } from "./builder";
+import { builder } from './builder';
 
-import "./models/Roles";
-import "./models/User";
+import './models/Roles';
+import './models/User';
 
 export const schema = builder.toSchema({});

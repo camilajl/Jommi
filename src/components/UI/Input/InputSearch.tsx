@@ -1,5 +1,5 @@
-import { Icon } from "@iconify/react";
-import * as React from "react";
+import { Icon } from '@iconify/react';
+import * as React from 'react';
 
 type InputType = {
   type?: React.HTMLInputTypeAttribute;
@@ -24,37 +24,30 @@ function InputSearch({
   required = false,
   children,
   value,
-  extraClassNames = "",
-  onKeyPress,
+  extraClassNames = '',
   onChange,
   disabled = false,
   onClick,
 }: InputType) {
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      if (onKeyPress) {
-        onKeyPress();
-      }
-    }
-  };
+
 
   return (
     <label
       htmlFor={name}
-      className={`${children ? "relative h-full" : "flex flex-col"
+      className={`${children ? 'relative h-full' : 'flex flex-col'
         } ${extraClassNames}`}
     >
       <span>
         {label}
-        {required && <span className="text-red-900"> * </span>}
+        {required && <span className='text-red-900'> * </span>}
       </span>
-      <div className="relative flex ">
+      <div className='relative flex'>
         <input
           type={type}
           name={name}
           placeholder={placeholder}
-          className={`${disabled ? "input__disabled" : "input"} py-2 pl-2 ${type === "text" ? "pr-2" : "pr-8"
-            } w-full rounded-[5px] `}
+          className={`${disabled ? 'input__disabled' : 'input'} py-2 pl-2 ${type === 'text' ? 'pr-2' : 'pr-8'
+            } w-full rounded-[5px]`}
           required={required}
           onChange={onChange}
           value={value}
@@ -62,12 +55,12 @@ function InputSearch({
         />
 
         {onClick && (
-          <span className="absolute inset-y-0 right-0 flex items-center pr-3">
-            <button type="button" onClick={onClick} aria-label={name}  >
+          <span className='absolute inset-y-0 right-0 flex items-center pr-3'>
+            <button type='button' onClick={onClick} aria-label={name}>
               <Icon
-                icon="material-symbols:search-rounded"
-                color="#838383"
-                className="h-[25px] w-[25px]"
+                icon='material-symbols:search-rounded'
+                color='#838383'
+                className='h-[25px] w-[25px]'
               />
             </button>
           </span>

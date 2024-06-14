@@ -1,9 +1,9 @@
-import UserForm from "@/src/components/Pages/App/Users/UserForm";
-import { checkRoleOnPage } from "@/src/utils/adminFunctions";
-import React from "react";
+import UserPage from '@/src/components/Pages/App/User';
+import React from 'react';
 
-const User = () => {
-  return <UserForm />;
+const User = ({ params }: { params: { id: string } }) => {
+  console.log('search Params ', params);
+  return <UserPage id={params.id} />;
 };
 
 export default User;

@@ -1,19 +1,22 @@
-"use client"
-import { gql, useQuery } from "@apollo/client";
+'use client';
+import { gql, useQuery } from '@apollo/client';
 
 const HELLO = gql`
-query Query {
-  hello
-}
+  query Query {
+    hello
+  }
 `;
 
 export default function Home() {
   const { data } = useQuery(HELLO, {
-    fetchPolicy: "network-only",
+    fetchPolicy: 'network-only',
   });
-  console.log("data ", data)
+  console.log('data ', data);
 
   return (
-    <div className="flex flex-col w-full min-h-screen p-20 items-center justify-center"> landing page </div>
+    <div className='flex min-h-screen w-full flex-col items-center justify-center p-20'>
+      {' '}
+      landing page{' '}
+    </div>
   );
 }

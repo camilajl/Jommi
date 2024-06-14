@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Navigation from "../UI/Navigation/Navigation";
+import React from 'react';
+import Navigation from '../UI/Navigation/Navigation';
 
 interface MainLayoutInteface {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const MainLayout = ({ children }: MainLayoutInteface) => {
   return (
-    <div className="h-screen flex flex-row bg-white dark:bg-black w-full relative ">
+    <div className='relative flex h-screen w-full flex-row bg-white dark:bg-black'>
       <Navigation />
-      <div className="pt-[60px] px-10 sm:pt-10 h-full  border-primary border w-full">
+      <div className='h-full w-full border border-primary px-10 pt-[60px] sm:pt-10'>
         {children}
       </div>
     </div>

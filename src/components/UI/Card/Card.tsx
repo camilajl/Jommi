@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 
 type CardType = {
   extraclassName?: string;
@@ -11,11 +11,10 @@ type CardType = {
 const Card = ({
   extraclassName,
   children,
-  onClick,
   contentExtraclassName,
 }: CardType) => {
   return (
-    <div className={`rounded-2xl shadow-md font-primaryFont ${extraclassName}`}>
+    <div className={`rounded-2xl font-primaryFont shadow-md ${extraclassName}`}>
       <div className={`${contentExtraclassName}`}>{children}</div>
     </div>
   );

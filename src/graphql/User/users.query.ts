@@ -1,30 +1,29 @@
-
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 export const GET_USERS = gql`
   query GetUsers {
     users {
       id
-      enabled 
+      enabled
       name
       email
       roles {
         name
       }
     }
-}
-`
+  }
+`;
 
 export const GET_USER = gql`
- query UserById($id: ID!) {
-  userById(id: $id) {
+  query GetUserById($id: ID!) {
+    userById(id: $id) {
       id
-      enabled 
+      enabled
       name
       email
       roles {
         name
       }
+    }
   }
-}
-`
+`;
