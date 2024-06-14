@@ -41,7 +41,6 @@
     "react-number-format": "^5.3.4",
     "react-select": "^5.8.0",
     "reflect-metadata": "^0.2.2",
-    "string-width": "4.2.3",
     "ts-tiny-invariant": "^2.0.5",
     "tw-elements": "^2.0.0"
   },
