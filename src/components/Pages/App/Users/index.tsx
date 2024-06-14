@@ -22,7 +22,7 @@ const UsersPage = () => {
           value={search}
           placeholder="Buscar usuario"
           onChange={(e) =>
-            setSearch(e.target.value === "" ? null : e.target.value)
+            setSearch(e.target.value)
           }
           onClick={() => { }}
         />

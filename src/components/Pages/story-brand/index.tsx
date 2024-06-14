@@ -22,7 +22,7 @@ const StoryBrandPage = ({ }: BrandPageType) => {
         .then(async (data) => {
           const res = await data.json();
           return setOptions(
-            res.results.map((el) => {
+            res.results.map((el: any) => {
               return { value: el.url, label: el.name };
             })
           );

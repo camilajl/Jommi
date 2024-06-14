@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 
 interface JobsCardType {
-  iconCategory?: string;
+  iconCategory: string;
   categoryName?: string;
   backgroundColor?: string;
 }

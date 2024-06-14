@@ -19,7 +19,7 @@ export const ButtonIcon = ({
   iconExtraClassName,
 }: ButtonLinkType) => {
   return (
-    <button type="button" onClick={onClick}>
+    <button type="button" onClick={onClick} aria-label={iconCategory}  >
       <div className="flex gap-x-3 items-center ">
         <Icon
           icon={iconCategory}

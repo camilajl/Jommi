@@ -48,7 +48,7 @@ const UserTable = ({ users }: TableUserProps) => {
 
           <td className="threeDots">
             <div className="flex  md:gap-2">
-              <Link href={`/app/users/${item?.id}`} replace>
+              <Link href={`/app/users/${item?.id}`}   >
                 <ButtonIcon
                   iconCategory={"material-symbols:edit-outline"}
                   iconExtraClassName={

@@ -19,3 +19,21 @@ builder.queryField("users", (t) =>
         },
     })
 );
+
+builder.queryField("userById", (t) =>
+    t.prismaField({
+        type: "User",
+        args: {
+            id: t.arg.id({ required: true })
+        },
+        resolve: async (query, root, args, ctx, info) => {
+            const user = await prisma.user.findFirstOrThrow({
+                ...query,
+                where: {
+                    id: args.id as string, // Ensure the ID is of type string
+                },
+            });
+            return user || null || undefined;
+        },
+    })
+);
