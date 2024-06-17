@@ -5,6 +5,7 @@ import { ButtonIcon } from '../../Buttons/ButtonIcon';
 import { useIsMobile } from '@/src/hooks/useIsMobile';
 import { GetUsersQuery } from '@/src/graphql/generated';
 import Link from 'next/link';
+import { ButtonLinkIcon } from '../../Buttons/ButtonLinkIcon';
 
 interface TableUserProps {
   users: GetUsersQuery['users'] | undefined;
@@ -46,15 +47,14 @@ const UserTable = ({ users }: TableUserProps) => {
 
           <td className='threeDots'>
             <div className='flex md:gap-2'>
-              <Link href={`/app/users/${item?.id}`}>
-                <ButtonIcon
-                  iconCategory={'material-symbols:edit-outline'}
-                  iconExtraClassName={
-                    'h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white'
-                  }
-                  // onClick={() => router.push(`/app/app/users/${item?.id}`)}
-                />
-              </Link>
+             
+             <ButtonLinkIcon
+                key={item.id}
+                path={`/app/users/${item?.id}`}
+                iconCategory='material-symbols:edit-outline'
+                iconColor={ 'h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white'}
+              />
+              
 
               <ButtonIcon
                 iconCategory={'material-symbols:delete-outline'}
