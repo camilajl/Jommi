@@ -11,7 +11,11 @@ interface LoadingInterface {
 const LoadingCustom = ({ open = true }: LoadingInterface) => (
   <Backdrop
     open={open}
-    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1000, position: 'absolute' }}
+    sx={{
+      color: '#fff',
+      zIndex: (theme) => theme.zIndex.drawer + 1000,
+      position: 'absolute',
+    }}
   >
     <CircularProgress color='inherit' />
   </Backdrop>

@@ -17,7 +17,11 @@ export const ButtonLinkIcon = ({
   iconColor,
 }: ButtonLinkType) => {
   return (
-    <Link href={path} className='flex items-center gap-x-3' aria-label={iconCategory} >
+    <Link
+      href={path}
+      className='flex items-center gap-x-3'
+      aria-label={iconCategory}
+    >
       <Icon
         icon={iconCategory}
         className={`h-[16px] w-[16px] md:h-[24px] md:w-[24px] ${iconColor} `}

@@ -20,15 +20,15 @@ const UserPage = ({ id }: UserPageInterface) => {
     GetUserByIdQueryVariables
   >(GET_USER, {
     variables: {
-      id: id
+      id: id,
     },
     initialFetchPolicy: 'network-only',
-    nextFetchPolicy: 'network-only'
+    nextFetchPolicy: 'network-only',
   });
   const loading2 = loading || false;
 
   return (
-    <LoadingErrorLayout loading={loading2} errors={[error]} >
+    <LoadingErrorLayout loading={loading2} errors={[error]}>
       <div className='flex flex-col space-y-10'>
         <form action=''>
           <div className='grid grid-cols-3 gap-3'>
