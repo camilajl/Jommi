@@ -28,13 +28,13 @@ const UserTable = ({ users }: TableUserProps) => {
           }
           key={item.id}
         >
-          <td className='threeDots'>{item?.name}</td>
-          <td className='threeDots'>{item?.email}</td>
+          <td className='threeDots p-2'>{item?.name}</td>
+          <td className='threeDots p-2'>{item?.email}</td>
           {!isMobileDevice && (
-            <td className='threeDots'>{item?.roles.map((r) => r.name)}</td>
+            <td className='threeDots p-2'>{item?.roles.map((r) => r.name)}</td>
           )}
           {!isMobileDevice && (
-            <td className='threeDots'>
+            <td className='threeDots p-2'>
               {/* {item?.enabled ? "true" : "false"  */}
               <ButtonIcon
                 iconCategory={
@@ -45,7 +45,7 @@ const UserTable = ({ users }: TableUserProps) => {
             </td>
           )}
 
-          <td className='threeDots'>
+          <td className='threeDots p-2'>
             <div className='flex md:gap-2'>
               <ButtonLinkIcon
                 key={item.id}

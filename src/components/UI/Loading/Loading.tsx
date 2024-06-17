@@ -5,13 +5,13 @@ import React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 interface LoadingInterface {
-  open: boolean;
+  open?: boolean;
 }
 
 const LoadingCustom = ({ open = true }: LoadingInterface) => (
   <Backdrop
     open={open}
-    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1000 }}
+    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1000, position: 'absolute' }}
   >
     <CircularProgress color='inherit' />
   </Backdrop>

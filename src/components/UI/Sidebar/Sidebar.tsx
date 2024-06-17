@@ -19,7 +19,7 @@ const Sidebar = ({ open }: SidebarInterface) => {
           <h1 className='font-primaryFont text-5xl font-medium text-jommi_purple dark:text-tertiary'>
             jommi.
           </h1>
-          <div className=' '>
+          <div className='space-y-5'>
             {routes?.map((route) => (
               <ButtonLinkIcon
                 key={route.id}
