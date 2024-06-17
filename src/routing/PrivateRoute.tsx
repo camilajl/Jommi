@@ -1,7 +1,7 @@
 import SignIn from '@/src/routing/SignIn';
 import MainLayout from '../components/Layouts/MainLayout';
 
-const PrivateRoute = async ({ children, rejected, session }: any) => {
+const PrivateRoute = ({ children, rejected, session }: any) => {
   if (session === undefined || session === null) {
     return <SignIn />;
   }

@@ -1,6 +1,6 @@
 {
   "extends": [
-    "next",
+    "next", 
     "plugin:react/recommended",
     "prettier",
     "next/core-web-vitals"

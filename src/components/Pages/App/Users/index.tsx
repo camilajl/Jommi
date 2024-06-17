@@ -11,8 +11,8 @@ const UsersPage = () => {
 
   const { loading, error, data } = useQuery<GetUsersQuery>(GET_USERS);
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error! ${error.message} </div>;
   return (
     <div className='flex flex-col space-y-10'>
       {/*COMPONENTE SEARCH */}
@@ -22,7 +22,7 @@ const UsersPage = () => {
           value={search}
           placeholder='Buscar usuario'
           onChange={(e) => setSearch(e.target.value)}
-          onClick={() => {}}
+          onClick={() => { }}
         />
       </div>
 
