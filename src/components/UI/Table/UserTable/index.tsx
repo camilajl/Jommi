@@ -47,14 +47,14 @@ const UserTable = ({ users }: TableUserProps) => {
 
           <td className='threeDots'>
             <div className='flex md:gap-2'>
-             
-             <ButtonLinkIcon
+              <ButtonLinkIcon
                 key={item.id}
                 path={`/app/users/${item?.id}`}
                 iconCategory='material-symbols:edit-outline'
-                iconColor={ 'h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white'}
+                iconColor={
+                  'h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-black dark:text-white'
+                }
               />
-              
 
               <ButtonIcon
                 iconCategory={'material-symbols:delete-outline'}

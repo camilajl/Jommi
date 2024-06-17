@@ -12,8 +12,11 @@ const UsersPage = () => {
 
   // const { loading, error, data: querydata } = useQuery<GetUsersQuery>(GET_USERS);
 
-  const { data, loading, error } = useQueries<GetUsersQuery>({ Query: GET_USERS, type: {} as GetUsersQuery });
-  console.log('data', data)
+  const { data, loading, error } = useQueries<GetUsersQuery>({
+    Query: GET_USERS,
+    type: {} as GetUsersQuery,
+  });
+  console.log('data', data);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error! ${error.message} </div>;
@@ -26,7 +29,7 @@ const UsersPage = () => {
           value={search}
           placeholder='Buscar usuario'
           onChange={(e) => setSearch(e.target.value)}
-          onClick={() => { }}
+          onClick={() => {}}
         />
       </div>
 

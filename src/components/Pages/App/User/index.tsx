@@ -3,7 +3,10 @@
 import { SelectInput } from '@/src/components/UI/Dropdowns/Dropdown';
 import InputText from '@/src/components/UI/Input/InputText';
 import { GET_USER } from '@/src/graphql/User/users.query';
-import { GetUserByIdQuery, GetUserByIdQueryVariables } from '@/src/graphql/generated';
+import {
+  GetUserByIdQuery,
+  GetUserByIdQueryVariables,
+} from '@/src/graphql/generated';
 import { useQuery } from '@apollo/client';
 import React from 'react';
 
@@ -12,9 +15,12 @@ interface UserPageInterface {
 }
 
 const UserPage = ({ id }: UserPageInterface) => {
-  const { loading, error } = useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GET_USER, {
+  const { loading, error } = useQuery<
+    GetUserByIdQuery,
+    GetUserByIdQueryVariables
+  >(GET_USER, {
     variables: {
-      id: id
+      id: id,
     },
   });
 
