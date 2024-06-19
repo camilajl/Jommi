@@ -5,19 +5,16 @@ const loadingLayoutAtom = atom({});
 const errorLayoutAtom = atom('');
 
 const useLoadingErrorValues = () => {
-  const [loadingErrorLayout, setLoadingErrorLayout] = useAtom(
-   loadingLayoutAtom 
-  );
+  const [loadingErrorLayout, setLoadingErrorLayout] =
+    useAtom(loadingLayoutAtom);
 
-   const [errorLayout, setErrorLayout] = useAtom(
-   errorLayoutAtom
-  );
+  const [errorLayout, setErrorLayout] = useAtom(errorLayoutAtom);
 
   return {
-  loadingErrorLayout, 
-  setLoadingErrorLayout,
-  errorLayout, 
-  setErrorLayout
+    loadingErrorLayout,
+    setLoadingErrorLayout,
+    errorLayout,
+    setErrorLayout,
   };
 };
 

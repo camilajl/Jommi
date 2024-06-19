@@ -16,7 +16,7 @@ interface UserPageInterface {
 }
 
 const UserPage = ({ id }: UserPageInterface) => {
-  const {setErrorLayout} = useLoadingErrorValues();
+  const { setErrorLayout } = useLoadingErrorValues();
 
   const { loading, error } = useQuery<
     GetUserByIdQuery,
@@ -25,13 +25,10 @@ const UserPage = ({ id }: UserPageInterface) => {
     variables: {
       id: id,
     },
-     onCompleted: () => {
-        
-      },
-      onError: () => {
-        setErrorLayout('');
-       
-      },
+    onCompleted: () => {},
+    onError: () => {
+      setErrorLayout('');
+    },
     initialFetchPolicy: 'network-only',
     nextFetchPolicy: 'network-only',
   });
