@@ -2,6 +2,7 @@
 import LoadingErrorLayout from '@/src/components/Layouts/LoadingErrorLayout';
 import { SelectInput } from '@/src/components/UI/Dropdowns/Dropdown';
 import InputText from '@/src/components/UI/Input/InputText';
+import { useLoadingErrorValues } from '@/src/context/loadingLayoutAtom';
 import { GET_USER } from '@/src/graphql/User/users.query';
 import {
   GetUserByIdQuery,
@@ -15,6 +16,8 @@ interface UserPageInterface {
 }
 
 const UserPage = ({ id }: UserPageInterface) => {
+  const {setErrorLayout} = useLoadingErrorValues();
+
   const { loading, error } = useQuery<
     GetUserByIdQuery,
     GetUserByIdQueryVariables
@@ -22,6 +25,13 @@ const UserPage = ({ id }: UserPageInterface) => {
     variables: {
       id: id,
     },
+     onCompleted: () => {
+        
+      },
+      onError: () => {
+        setErrorLayout('');
+       
+      },
     initialFetchPolicy: 'network-only',
     nextFetchPolicy: 'network-only',
   });

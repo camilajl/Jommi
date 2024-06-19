@@ -2,7 +2,6 @@ import { DocumentNode, useQuery } from '@apollo/client';
 
 interface UseQueriesType<T> {
   Query: DocumentNode;
-  type: T;
 }
 
 const useQueries = <T>({ Query }: UseQueriesType<T>) => {

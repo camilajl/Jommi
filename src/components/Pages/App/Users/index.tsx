@@ -14,7 +14,6 @@ const UsersPage = () => {
 
   const { data, loading, error } = useQueries<GetUsersQuery>({
     Query: GET_USERS,
-    type: {} as GetUsersQuery,
   });
   console.log('data', data);
 
