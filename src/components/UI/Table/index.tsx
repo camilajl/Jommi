@@ -13,7 +13,7 @@ const Table = ({ thead, children }: TableProps) => (
         <thead className='thead_table'>
           <tr>
             {thead?.map((itemTh) => (
-              <th key={itemTh} className='text-start'>
+              <th key={itemTh} className='text-start p-2'>
                 {itemTh}
               </th>
             ))}

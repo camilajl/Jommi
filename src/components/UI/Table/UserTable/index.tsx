@@ -4,7 +4,6 @@ import React from 'react';
 import { ButtonIcon } from '../../Buttons/ButtonIcon';
 import { useIsMobile } from '@/src/hooks/useIsMobile';
 import { GetUsersQuery } from '@/src/graphql/generated';
-import Link from 'next/link';
 import { ButtonLinkIcon } from '../../Buttons/ButtonLinkIcon';
 
 interface TableUserProps {
