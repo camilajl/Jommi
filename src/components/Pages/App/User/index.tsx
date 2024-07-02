@@ -26,8 +26,8 @@ const UserPage = ({ id }: UserPageInterface) => {
       id: id,
     },
     onCompleted: () => {},
-    onError: () => {
-      setErrorLayout('');
+    onError: (error) => {
+      setErrorLayout(error);
     },
     initialFetchPolicy: 'network-only',
     nextFetchPolicy: 'network-only',
