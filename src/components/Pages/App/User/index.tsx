@@ -2,37 +2,44 @@
 import LoadingErrorLayout from '@/src/components/Layouts/LoadingErrorLayout';
 import { SelectInput } from '@/src/components/UI/Dropdowns/Dropdown';
 import InputText from '@/src/components/UI/Input/InputText';
-import { useLoadingErrorValues } from '@/src/context/loadingLayoutAtom';
+import { useLoadingError } from '@/src/context/loadingErrorContext';
+//import { useLoadingErrorValues } from '@/src/context/loadingLayoutAtom';
 import { GET_USER } from '@/src/graphql/User/users.query';
 import {
   GetUserByIdQuery,
   GetUserByIdQueryVariables,
 } from '@/src/graphql/generated';
 import { useQuery } from '@apollo/client';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface UserPageInterface {
   id: string;
 }
 
 const UserPage = ({ id }: UserPageInterface) => {
-  const { setErrorLayout } = useLoadingErrorValues();
+  //const { setErrorLayout } = useLoadingErrorValues();
+  const { loading, error, setLoading, setError } = useLoadingError();
 
-  const { loading, error } = useQuery<
+  const { loading: queryLoading, error: queryError } = useQuery<
     GetUserByIdQuery,
     GetUserByIdQueryVariables
   >(GET_USER, {
     variables: {
       id: id,
     },
-    onCompleted: () => {},
-    onError: (error) => {
-      setErrorLayout(error);
+    onCompleted: () => setLoading(false),
+    onError: (err) => {
+      setLoading(false);
+      setError(err);
     },
     initialFetchPolicy: 'network-only',
     nextFetchPolicy: 'network-only',
   });
   const loading2 = loading || false;
+
+  useEffect(() => {
+    setLoading(queryLoading);
+  }, [queryLoading, queryError, setLoading, setError]);
 
   return (
     <LoadingErrorLayout loading={loading2} errors={[error]}>
