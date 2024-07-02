@@ -23,7 +23,7 @@ export default async function RootLayout({
         <PrivateRoute rejected={false} isPublic={false} session={session}>
           {children}
         </PrivateRoute>
-      </LoadingErrorProvider >
+      </LoadingErrorProvider>
     </NextAuthProvider>
   );
 }
