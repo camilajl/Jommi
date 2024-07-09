@@ -4,6 +4,7 @@ import { authOptions } from '@/config/auth';
 import { getServerSession } from 'next-auth';
 import PrivateRoute from '@/src/routing/PrivateRoute';
 import React from 'react';
+import { LoadingErrorProvider } from '@/src/context/loadingErrorContext';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,9 +19,11 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
   return (
     <NextAuthProvider session={session}>
-      <PrivateRoute rejected={false} isPublic={false} session={session}>
-        {children}
-      </PrivateRoute>
+      <LoadingErrorProvider>
+        <PrivateRoute rejected={false} isPublic={false} session={session}>
+          {children}
+        </PrivateRoute>
+      </LoadingErrorProvider >
     </NextAuthProvider>
   );
 }

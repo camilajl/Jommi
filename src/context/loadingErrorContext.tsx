@@ -1,3 +1,4 @@
+'use client'
 import { ApolloError } from '@apollo/client';
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 

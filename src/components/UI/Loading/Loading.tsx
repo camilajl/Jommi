@@ -15,6 +15,8 @@ const LoadingCustom = ({ open = true }: LoadingInterface) => (
       color: '#fff',
       zIndex: (theme) => theme.zIndex.drawer + 1000,
       position: 'absolute',
+      width: '100%',
+      height: '90vh'
     }}
   >
     <CircularProgress color='inherit' />
