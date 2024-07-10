@@ -44,6 +44,10 @@ body {
     @apply w-full rounded-[7px] border border-secondary_grey bg-transparent px-2 py-2 font-primaryFont text-secondary_grey focus:border-primary focus:outline-none;
   }
 
+  .input-file {
+    @apply w-full rounded-[7px]  bg-transparent px-2 py-2 font-primaryFont text-secondary_grey;
+  }
+
   .input__disabled {
     @apply bg-tertiary_grey dark:border dark:border-tertiary_grey;
   }

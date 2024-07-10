@@ -14,6 +14,7 @@ import { useFormik } from 'formik';
 import React, { useEffect, useMemo } from 'react';
 import Button from '@/src/components/UI/Buttons/Button';
 import { useQueries } from '@/src/hooks/useQueries';
+import InputFile from '@/src/components/UI/Input/InputFile';
 
 interface UserPageInterface {
   id: string;
@@ -65,7 +66,7 @@ const UserPage = ({ id }: UserPageInterface) => {
     if (!userData) return {};
     return {
       name: userData?.name,
-      email: userData?.email
+      email: userData?.email,
      
     };
   }, [userData]);
@@ -93,7 +94,10 @@ const UserPage = ({ id }: UserPageInterface) => {
     <div className='flex flex-col space-y-10'>
       <form onSubmit={formik.handleSubmit} className='space-y-5'>
         <div className='grid grid-cols-3 gap-3'>
-          
+          <InputFile
+            label={'Image'}
+            onChange={formik?.handleChange}
+          />
           <InputText label={'Nombre'} placeholder={'Nombre'} value={formik?.values?.name ?? ''} onChange={formik?.handleChange}/>
           <InputText
             label={'Email'}
