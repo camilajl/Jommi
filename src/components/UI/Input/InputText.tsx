@@ -1,15 +1,17 @@
 'use client';
 import React from 'react';
 
-type InputType = {
-  type?: 'text' | 'email' | 'password';
-  label: string;
-  placeholder: string;
-  required?: boolean;
+interface InputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  /** Etiqueta del campo de entrada */
+  label?: string;
+  /** Indica si el campo está deshabilitado */
   disabled?: boolean;
-  name?: string;
+  /** Indica si el campo es obligatorio */
+  required?: boolean;
   extraClassNames?: string;
-};
+  type?: string;
+}
 
 const InputText = ({
   type,
@@ -19,7 +21,8 @@ const InputText = ({
   name,
   extraClassNames,
   disabled = false,
-}: InputType) => {
+  ...props
+}: InputProps) => {
   return (
     <label htmlFor={name} className={` ${'input_label'} ${extraClassNames}`}>
       <span>
@@ -34,6 +37,7 @@ const InputText = ({
         className={`${disabled ? 'input input__disabled' : 'input'} `}
         required={required}
         disabled={disabled}
+        {...props}
       />
     </label>
   );
