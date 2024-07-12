@@ -31,6 +31,7 @@ const UserPage = ({ id }: UserPageInterface) => {
     nextFetchPolicy: 'network-only',
   });
 
+<<<<<<< HEAD
   const userData = userByIdData?.userById
 
   console.log('userData  :>> ', userData );
@@ -47,18 +48,21 @@ const UserPage = ({ id }: UserPageInterface) => {
   // });
 
   const error2 = "hubo un error";
+=======
+  const error2 = 'hubo un error';
+>>>>>>> 65264fe (df2s)
   const loading = true;
   useEffect(() => {
-    console.log("query loading ", queryLoading)
+    console.log('query loading ', queryLoading);
     if (queryLoading) {
       setLoading(true);
     } else {
-      console.log("Abc")
-      setLoading(false)
+      console.log('Abc');
+      setLoading(false);
     }
 
     if (queryError || error2) {
-      setError(queryError)
+      setError(queryError);
     }
   }, [queryLoading, queryError, error2, setLoading, setError]);
 
@@ -90,7 +94,6 @@ const UserPage = ({ id }: UserPageInterface) => {
 });
 
   return (
-
     <div className='flex flex-col space-y-10'>
       <form onSubmit={formik.handleSubmit} className='space-y-5'>
         <div className='grid grid-cols-3 gap-3'>
