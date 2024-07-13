@@ -24,17 +24,20 @@ const UserPage = ({ id }: UserPageInterface) => {
   //const { setErrorLayout } = useLoadingErrorValues();
   const { error, setLoading, setError } = useLoadingError();
 
-   const { data: userByIdData , loading: queryLoading, error: queryError } = useQueries<GetUserByIdQuery>({
+  const {
+    data: userByIdData,
+    loading: queryLoading,
+    error: queryError,
+  } = useQueries<GetUserByIdQuery>({
     Query: GET_USER,
-    variables:{id: id,},
+    variables: { id: id },
     initialFetchPolicy: 'network-only',
     nextFetchPolicy: 'network-only',
   });
 
-<<<<<<< HEAD
-  const userData = userByIdData?.userById
+  const userData = userByIdData?.userById;
 
-  console.log('userData  :>> ', userData );
+  console.log('userData  :>> ', userData);
 
   // const { loading: queryLoading, error: queryError } = useQuery<
   //   GetUserByIdQuery,
@@ -47,10 +50,7 @@ const UserPage = ({ id }: UserPageInterface) => {
   //   nextFetchPolicy: 'network-only',
   // });
 
-  const error2 = "hubo un error";
-=======
   const error2 = 'hubo un error';
->>>>>>> 65264fe (df2s)
   const loading = true;
   useEffect(() => {
     console.log('query loading ', queryLoading);
@@ -66,62 +66,71 @@ const UserPage = ({ id }: UserPageInterface) => {
     }
   }, [queryLoading, queryError, error2, setLoading, setError]);
 
-   const initialValues: Partial<GetUserByIdQuery['userById']> = useMemo(() => {
+  const initialValues: Partial<GetUserByIdQuery['userById']> = useMemo(() => {
     if (!userData) return {};
     return {
       name: userData?.name,
       email: userData?.email,
-     
     };
   }, [userData]);
 
   const validationSchema = useMemo(
     () =>
-      Yup.object({    
+      Yup.object({
         name: Yup.string().required('Field required'),
-        
       }),
     []
   );
   // useFormik
- const formik = useFormik({
-  initialValues,
-  validationSchema,
-  onSubmit: () => {
-    // Submit handler code
-  },
-  enableReinitialize: true,
-});
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: () => {
+      // Submit handler code
+    },
+    enableReinitialize: true,
+  });
 
   return (
     <div className='flex flex-col space-y-10'>
       <form onSubmit={formik.handleSubmit} className='space-y-5'>
         <div className='grid grid-cols-3 gap-3'>
-          <InputFile
-            label={'Image'}
+          <InputFile label={'Image'} onChange={formik?.handleChange} />
+          <InputText
+            label={'Nombre'}
+            placeholder={'Nombre'}
+            value={formik?.values?.name ?? ''}
             onChange={formik?.handleChange}
           />
-          <InputText label={'Nombre'} placeholder={'Nombre'} value={formik?.values?.name ?? ''} onChange={formik?.handleChange}/>
           <InputText
             label={'Email'}
             placeholder={'Email@example.com'}
             type='email'
-            value={formik?.values?.email} 
+            value={formik?.values?.email}
             onChange={formik?.handleChange}
           />
-          <InputSelect label={'Rol'} options={[{label:'Admin' , value: 'admin'},{label:'Client' , value: 'Client'}]} />
-          <InputSelect label={'Aprobado'} options={[{label:'Si' , value: 'Si'},{label:'No' , value: 'No'}]} />
-          <InputSelect label={'Estado'} options={[{label:'value1' , value: 'value1'}]} />
+          <InputSelect
+            label={'Rol'}
+            options={[
+              { label: 'Admin', value: 'admin' },
+              { label: 'Client', value: 'Client' },
+            ]}
+          />
+          <InputSelect
+            label={'Aprobado'}
+            options={[
+              { label: 'Si', value: 'Si' },
+              { label: 'No', value: 'No' },
+            ]}
+          />
+          <InputSelect
+            label={'Estado'}
+            options={[{ label: 'value1', value: 'value1' }]}
+          />
         </div>
-        <div className='flex gap-2 items-center justify-center'>
-          <Button
-            text='Cancel'
-          />
-          <Button
-            type='submit'
-            text='Save'
-            
-          />
+        <div className='flex items-center justify-center gap-2'>
+          <Button text='Cancel' />
+          <Button type='submit' text='Save' />
         </div>
       </form>
     </div>
