@@ -132,3 +132,8 @@ enum EnumDocumentType {
   PASAPORTE
   VISA
 }
+
+enum EnumRole {
+  ADMIN
+  CLIENT
+}
