@@ -1,3 +1,4 @@
+import { profile } from 'console';
 import { builder } from '../builder';
 import { prisma } from '@/config/prisma';
 
@@ -8,6 +9,7 @@ builder.prismaObject('User', {
     email: t.exposeString('email'),
     enabled: t.exposeBoolean('enabled'),
     roles: t.relation('roles'),
+    profile: t.relation('profile'),
   }),
 });
 

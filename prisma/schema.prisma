@@ -69,7 +69,7 @@ model Role {
   name      roleName
   users     User[]
   pages     Page[]
-  profile   Profile[]
+  profile   Profile[]      
   createdAt DateTime       @default(now())
   updatedAt DateTime       @updatedAt
 }
@@ -95,7 +95,7 @@ model User {
   roles         Role[]
   enabled       Boolean         @default(true)
   approved      Boolean         @default(false)
-  profile       Profile[]
+  profile       Profile[]        
   // Optional for WebAuthn support
   Authenticator Authenticator[]
 
@@ -105,11 +105,14 @@ model User {
 
 model Profile {
   id            String          @id @default(cuid())
-  userId        String
-  user          User[]
-  email         String
-  image         String?
-  roles         Role[]
+  userId        String   
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)       
+  phone         String
+  age           Int
+  documentType  EnumDocumentType
+  document      String
+  roleId        String
+  role          Role            @relation(fields: [roleId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -120,4 +123,12 @@ model VerificationToken {
   expires    DateTime
 
   @@id([identifier, token])
+}
+
+enum EnumDocumentType {
+  CC
+  CE
+  NIT
+  PASAPORTE
+  VISA
 }
