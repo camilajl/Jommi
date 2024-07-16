@@ -15,6 +15,10 @@ import React, { useEffect, useMemo } from 'react';
 import Button from '@/src/components/UI/Buttons/Button';
 import { useQueries } from '@/src/hooks/useQueries';
 import InputFile from '@/src/components/UI/Input/InputFile';
+import { roleOptions } from '@/src/utils/enumOptions';
+import { InputCheck } from '@/src/components/UI/Input/InputCheck';
+import { CardCheck } from '@/src/components/UI/Card/CardCheck';
+import { ExtendedUser } from '@/src/utils/types';
 
 interface UserPageInterface {
   id: string;
@@ -28,7 +32,7 @@ const UserPage = ({ id }: UserPageInterface) => {
     data: userByIdData,
     loading: queryLoading,
     error: queryError,
-  } = useQueries<GetUserByIdQuery>({
+  } = useQueries<ExtendedUser>({
     Query: GET_USER,
     variables: { id: id },
     initialFetchPolicy: 'network-only',
@@ -65,12 +69,15 @@ const UserPage = ({ id }: UserPageInterface) => {
       setError(queryError);
     }
   }, [queryLoading, queryError, error2, setLoading, setError]);
+  console.log('userData :>> ', userData);
 
-  const initialValues: Partial<GetUserByIdQuery['userById']> = useMemo(() => {
+  const initialValues: Partial<ExtendedUser['userById']> = useMemo(() => {
     if (!userData) return {};
     return {
       name: userData?.name,
       email: userData?.email,
+      role: userData?.roles,
+      age: userData?.profile,
     };
   }, [userData]);
 
@@ -95,7 +102,11 @@ const UserPage = ({ id }: UserPageInterface) => {
     <div className='flex flex-col space-y-10'>
       <form onSubmit={formik.handleSubmit} className='space-y-5'>
         <div className='grid grid-cols-3 gap-3'>
-          <InputFile label={'Image'} onChange={formik?.handleChange} />
+          <InputFile
+            accept='image/png,image/jpeg'
+            label={'Image'}
+            onChange={formik?.handleChange}
+          />
           <InputText
             label={'Nombre'}
             placeholder={'Nombre'}
@@ -109,23 +120,38 @@ const UserPage = ({ id }: UserPageInterface) => {
             value={formik?.values?.email}
             onChange={formik?.handleChange}
           />
+          <InputText
+            label={'Edad'}
+            placeholder={'18'}
+            type='text'
+            value={formik?.values?.email}
+            onChange={formik?.handleChange}
+          />
           <InputSelect
             label={'Rol'}
-            options={[
-              { label: 'Admin', value: 'admin' },
-              { label: 'Client', value: 'Client' },
-            ]}
+            options={roleOptions}
+            placeholder={'Admin'}
+            value={formik?.values?.roles}
           />
-          <InputSelect
-            label={'Aprobado'}
-            options={[
-              { label: 'Si', value: 'Si' },
-              { label: 'No', value: 'No' },
-            ]}
+          <CardCheck
+            firstInputName='enabled'
+            firstInputLabel='Si'
+            onChangeEnabled={() => formik.setFieldValue('enabled', true)}
+            onChangeDisabled={() => formik.setFieldValue('enabled', false)}
+            title={'Habilitado'}
+            required={false}
+            secondInputName='enabled'
+            secondInputLabel='No'
           />
-          <InputSelect
-            label={'Estado'}
-            options={[{ label: 'value1', value: 'value1' }]}
+          <CardCheck
+            firstInputName='approved'
+            firstInputLabel='Si'
+            onChangeEnabled={() => formik.setFieldValue('approved', true)}
+            onChangeDisabled={() => formik.setFieldValue('approved', false)}
+            title={'Aprobado'}
+            required={false}
+            secondInputName='approved'
+            secondInputLabel='No'
           />
         </div>
         <div className='flex items-center justify-center gap-2'>

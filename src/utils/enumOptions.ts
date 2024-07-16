@@ -1,10 +1,10 @@
-import { EnumDocumentType } from '@prisma/client';
+import { roleName } from '@prisma/client';
 
-type OptionTypeProbability = { value: ; label: string };
+type OptionRole = { value: roleName; label: string };
 
-export const leadProbabilityOptions: [] = Object.keys(enumLeadProbability)
+export const roleOptions: OptionRole[] = Object.keys(roleName)
   .map((key) => ({
-    value: enumLeadProbability[key as keyof typeof enumLeadProbability],
+    value: roleName[key as keyof typeof roleName],
     label: key,
   }))
   .sort((a, b) => a.label.localeCompare(b.label));
