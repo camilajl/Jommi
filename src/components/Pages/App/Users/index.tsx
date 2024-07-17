@@ -15,7 +15,6 @@ const UsersPage = () => {
   const { data, loading, error } = useQueries<GetUsersQuery>({
     Query: GET_USERS,
   });
-  console.log('data', data);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error! ${error.message} </div>;

@@ -10,6 +10,8 @@ import Card from '@/src/components/UI/Card/Card';
 const StoryBrandPage = () => {
   //recibe query y retorna resultados del query
 
+
+
   const [options, setOptions] = useState([]);
   const pokemons = async (limit = 40) => {
     try {

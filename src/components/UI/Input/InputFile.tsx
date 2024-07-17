@@ -13,7 +13,7 @@ interface InputProps
   type?: string;
 }
 
-const InputText = ({
+const InputFile = ({
   type,
   label,
   placeholder,
@@ -31,10 +31,10 @@ const InputText = ({
       </span>
 
       <input
-        type={type}
+        type='file'
         name={name}
         placeholder={placeholder}
-        className={`${disabled ? 'input input__disabled' : 'input'} `}
+        className={`${disabled ? 'input-file  input__disabled' : 'input-file '} `}
         required={required}
         disabled={disabled}
         {...props}
@@ -43,4 +43,4 @@ const InputText = ({
   );
 };
 
-export default InputText;
+export default InputFile;
