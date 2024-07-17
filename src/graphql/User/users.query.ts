@@ -10,6 +10,13 @@ export const GET_USERS = gql`
       roles {
         name
       }
+      profile {
+        age
+        document
+        documentType
+        id
+        phone
+      }
     }
   }
 `;
@@ -23,6 +30,13 @@ export const GET_USER = gql`
       email
       roles {
         name
+      }
+      profile {
+        age
+        document
+        documentType
+        id
+        phone
       }
     }
   }

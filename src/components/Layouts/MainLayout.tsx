@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import Navigation from '../UI/Navigation/Navigation';
 import { useLoadingError } from '@/src/context/loadingErrorContext';
@@ -14,11 +14,7 @@ const MainLayout = ({ children }: MainLayoutInteface) => {
     <div className='relative flex h-screen w-full flex-row bg-white dark:bg-black'>
       <Navigation />
       <div className='h-full w-full border border-primary px-10 pt-[60px] sm:pt-10'>
-        <div className='relative '>
-          {loading && (
-            <LoadingCustom />
-          )}
-        </div>
+        <div className='relative'>{loading && <LoadingCustom />}</div>
         {children}
       </div>
     </div>

@@ -21,6 +21,7 @@ const InputFile = ({
   name,
   extraClassNames,
   disabled = false,
+  accept,
   ...props
 }: InputProps) => {
   return (
@@ -34,9 +35,10 @@ const InputFile = ({
         type='file'
         name={name}
         placeholder={placeholder}
-        className={`${disabled ? 'input-file  input__disabled' : 'input-file '} `}
+        className={`${disabled ? 'input-file input__disabled' : 'input-file'} `}
         required={required}
         disabled={disabled}
+        accept={accept}
         {...props}
       />
     </label>
