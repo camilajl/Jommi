@@ -5,6 +5,7 @@ export const GET_USERS = gql`
     users {
       id
       enabled
+      approved
       name
       email
       roles {
@@ -26,9 +27,11 @@ export const GET_USER = gql`
     userById(id: $id) {
       id
       enabled
+      approved
       name
       email
       roles {
+        id
         name
       }
       profile {

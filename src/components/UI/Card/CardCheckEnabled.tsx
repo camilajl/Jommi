@@ -16,7 +16,7 @@ interface CardCheckType {
   secondInputPlaceholder?: string;
   secondInputLabel?: string;
 }
-const CardCheck = ({
+const CardCheckEnabled = ({
   firstInputName,
   firstInputPlaceholder,
   firstInputLabel,
@@ -61,4 +61,4 @@ const CardCheck = ({
   </div>
 );
 
-export { CardCheck };
+export { CardCheckEnabled };

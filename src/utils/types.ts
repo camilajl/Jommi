@@ -1,5 +1,5 @@
 import { GetUserByIdQuery } from '@/src/graphql/generated';
-import { Profile } from '@prisma/client';
+import { Profile, Role } from '@prisma/client';
 
 export type Generic1 = {
   hola: string;
@@ -7,4 +7,5 @@ export type Generic1 = {
 
 export interface ExtendedUser extends GetUserByIdQuery {
   profile: Profile;
+  roles: Role[];
 }

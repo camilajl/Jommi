@@ -17,8 +17,8 @@ import { useQueries } from '@/src/hooks/useQueries';
 import InputFile from '@/src/components/UI/Input/InputFile';
 import { roleOptions } from '@/src/utils/enumOptions';
 import { InputCheck } from '@/src/components/UI/Input/InputCheck';
-import { CardCheck } from '@/src/components/UI/Card/CardCheck';
 import { ExtendedUser } from '@/src/utils/types';
+import { CardCheckEnabled } from '@/src/components/UI/Card/CardCheckEnabled';
 
 interface UserPageInterface {
   id: string;
@@ -76,8 +76,10 @@ const UserPage = ({ id }: UserPageInterface) => {
     return {
       name: userData?.name,
       email: userData?.email,
-      role: userData?.roles,
-      age: userData?.profile,
+      role: userData?.roles?.[0]?.id,
+      age: userData?.profile?.age,
+      approved: userData?.approved,
+      enabled: userData?.enabled
     };
   }, [userData]);
 
@@ -97,6 +99,7 @@ const UserPage = ({ id }: UserPageInterface) => {
     },
     enableReinitialize: true,
   });
+  console.log('object :>> ', formik);
 
   return (
     <div className='flex flex-col space-y-10'>
@@ -122,9 +125,10 @@ const UserPage = ({ id }: UserPageInterface) => {
           />
           <InputText
             label={'Edad'}
+            name='age'
             placeholder={'18'}
             type='text'
-            value={formik?.values?.email}
+            value={formik?.values?.age}
             onChange={formik?.handleChange}
           />
           <InputSelect
@@ -133,7 +137,7 @@ const UserPage = ({ id }: UserPageInterface) => {
             placeholder={'Admin'}
             value={formik?.values?.roles}
           />
-          <CardCheck
+          <CardCheckEnabled
             firstInputName='enabled'
             firstInputLabel='Si'
             onChangeEnabled={() => formik.setFieldValue('enabled', true)}
@@ -142,8 +146,10 @@ const UserPage = ({ id }: UserPageInterface) => {
             required={false}
             secondInputName='enabled'
             secondInputLabel='No'
+            checkEnable={formik?.values?.enabled}
+            checkDisabled={!formik?.values?.enabled}
           />
-          <CardCheck
+          <CardCheckEnabled
             firstInputName='approved'
             firstInputLabel='Si'
             onChangeEnabled={() => formik.setFieldValue('approved', true)}
@@ -152,6 +158,8 @@ const UserPage = ({ id }: UserPageInterface) => {
             required={false}
             secondInputName='approved'
             secondInputLabel='No'
+            checkEnable={formik?.values?.approved}
+            checkDisabled={!formik?.values?.approved}
           />
         </div>
         <div className='flex items-center justify-center gap-2'>
