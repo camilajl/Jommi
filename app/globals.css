@@ -27,6 +27,18 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.diagonal-component1 {
+  width: 20px; /* Ajusta según sea necesario */
+  height: 20px; /* Ajusta según sea necesario */
+  background: linear-gradient(to top left, #838383 50%, #b3b3b3 50%);
+}
+
+.diagonal-component2 {
+  width: 20px; /* Ajusta según sea necesario */
+  height: 20px; /* Ajusta según sea necesario */
+  background: linear-gradient(to top left, white 50%, #ff0000 50%);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -40,3 +40,26 @@ builder.queryField('userById', (t) =>
     },
   })
 );
+
+builder.mutationField('createUser', (t) =>
+  t.prismaField({
+    type: 'User',
+    args: {
+      name: t.arg.string({ required: true }),
+      email: t.arg.string({ required: true }),
+      enabled: t.arg.boolean({ defaultValue: true }),
+      approved: t.arg.boolean({ defaultValue: false }),
+    },
+    resolve: async (mutation, root, args, ctx, info) => {
+      const user = await prisma.user.create({
+        data: {
+          name: args.name,
+          email: args.email,
+          enabled: args.enabled ?? true,
+          approved: args.approved ?? false,
+        },
+      });
+      return user;
+    },
+  })
+);

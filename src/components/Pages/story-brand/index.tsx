@@ -6,11 +6,10 @@ import InputDate from '@/src/components/UI/Input/InputDate';
 import InputNumber from '@/src/components/UI/Input/InputNumber';
 import { SelectInput } from '@/src/components/UI/Dropdowns/Dropdown';
 import Card from '@/src/components/UI/Card/Card';
+import { Icon } from '@iconify/react';
 
 const StoryBrandPage = () => {
   //recibe query y retorna resultados del query
-
-
 
   const [options, setOptions] = useState([]);
   const pokemons = async (limit = 40) => {
@@ -36,7 +35,7 @@ const StoryBrandPage = () => {
   return (
     <div className='flex min-h-screen w-full flex-col items-center justify-center p-20'>
       <div className='text-center'>StoryBrand</div>
-      <div className='flex h-[400px] w-full flex-col items-center gap-4 border-primary py-4'>
+      <div className='flex h-[900px] w-full flex-col items-center gap-4 border-primary py-4'>
         <div className='flex flex-col gap-4 rounded-lg bg-white p-4 md:flex-row dark:bg-purple-custom'>
           <Button text='Button' hierarchy='button-secondary' />
           <Button text='Button' />
