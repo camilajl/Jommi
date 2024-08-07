@@ -2,7 +2,6 @@ import { stylesSelect, themeSelect } from '@/src/utils/styles';
 import React from 'react';
 import Select, { ActionMeta, GroupBase, OptionsOrGroups } from 'react-select';
 
-
 type SelectProps = React.ComponentPropsWithRef<typeof Select>;
 
 type OptionType = {
@@ -25,7 +24,7 @@ interface InputSelectProps extends Omit<SelectProps, 'options' | 'required'> {
 }
 
 /**
- * InputSelectFormik Component
+ * InputSelect Component
  * This component renders a select input with a label and options.
  */
 const InputSelect = ({
@@ -68,7 +67,7 @@ const InputSelect = ({
         theme={themeSelect}
         options={options}
         onChange={onChange}
-        className='h-12 w-full  md:max-w-[400px] p-0'
+        className='h-12 w-full p-0 md:max-w-[400px]'
         isDisabled={isDisabled}
       />
     </div>

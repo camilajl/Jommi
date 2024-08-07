@@ -15,6 +15,11 @@ import React, { useEffect, useMemo } from 'react';
 import Button from '@/src/components/UI/Buttons/Button';
 import { useQueries } from '@/src/hooks/useQueries';
 import InputFile from '@/src/components/UI/Input/InputFile';
+import { roleOptions } from '@/src/utils/enumOptions';
+import { InputCheck } from '@/src/components/UI/Input/InputCheck';
+import { ExtendedUser } from '@/src/utils/types';
+import { CardCheckEnabled } from '@/src/components/UI/Card/CardCheckEnabled';
+import { profile } from 'console';
 
 interface UserPageInterface {
   id: string;
@@ -24,16 +29,20 @@ const UserPage = ({ id }: UserPageInterface) => {
   //const { setErrorLayout } = useLoadingErrorValues();
   const { error, setLoading, setError } = useLoadingError();
 
-  const { data: userByIdData, loading: queryLoading, error: queryError } = useQueries<GetUserByIdQuery>({
+  const {
+    data: userByIdData,
+    loading: queryLoading,
+    error: queryError,
+  } = useQueries<ExtendedUser>({
     Query: GET_USER,
-    variables: { id: id, },
+    variables: { id: id },
     initialFetchPolicy: 'network-only',
     nextFetchPolicy: 'network-only',
   });
 
-  const userData = userByIdData?.userById
+  const userData = userByIdData?.userById;
 
-  console.log('userData  :>> ', userData);
+
 
   // const { loading: queryLoading, error: queryError } = useQuery<
   //   GetUserByIdQuery,
@@ -46,14 +55,14 @@ const UserPage = ({ id }: UserPageInterface) => {
   //   nextFetchPolicy: 'network-only',
   // });
 
-  const error2 = "hubo un error";
+  const error2 = 'hubo un error';
   const loading = true;
   useEffect(() => {
-    console.log('query loading ', queryLoading);
+
     if (queryLoading) {
       setLoading(true);
     } else {
-      console.log('Abc');
+
       setLoading(false);
     }
 
@@ -62,12 +71,16 @@ const UserPage = ({ id }: UserPageInterface) => {
     }
   }, [queryLoading, queryError, error2, setLoading, setError]);
 
+
   const initialValues: Partial<GetUserByIdQuery['userById']> = useMemo(() => {
     if (!userData) return {};
     return {
       name: userData?.name,
       email: userData?.email,
-
+      roles: userData?.roles,
+      profile: userData?.profile,
+      approved: userData?.approved,
+      enabled: userData?.enabled
     };
   }, [userData]);
 
@@ -75,7 +88,6 @@ const UserPage = ({ id }: UserPageInterface) => {
     () =>
       Yup.object({
         name: Yup.string().required('Field required'),
-
       }),
     []
   );
@@ -88,16 +100,23 @@ const UserPage = ({ id }: UserPageInterface) => {
     },
     enableReinitialize: true,
   });
+  console.log('object :>> ', formik);
 
   return (
     <div className='flex flex-col space-y-10'>
       <form onSubmit={formik.handleSubmit} className='space-y-5'>
         <div className='grid grid-cols-3 gap-3'>
           <InputFile
+            accept='image/png,image/jpeg'
             label={'Image'}
             onChange={formik?.handleChange}
           />
-          <InputText label={'Nombre'} placeholder={'Nombre'} value={formik?.values?.name ?? ''} onChange={formik?.handleChange} />
+          <InputText
+            label={'Nombre'}
+            placeholder={'Nombre'}
+            value={formik?.values?.name ?? ''}
+            onChange={formik?.handleChange}
+          />
           <InputText
             label={'Email'}
             placeholder={'Email@example.com'}
@@ -105,19 +124,48 @@ const UserPage = ({ id }: UserPageInterface) => {
             value={formik?.values?.email}
             onChange={formik?.handleChange}
           />
-          <InputSelect label={'Rol'} options={[{ label: 'Admin', value: 'admin' }, { label: 'Client', value: 'Client' }]} />
-          <InputSelect label={'Aprobado'} options={[{ label: 'Si', value: 'Si' }, { label: 'No', value: 'No' }]} />
-          <InputSelect label={'Estado'} options={[{ label: 'value1', value: 'value1' }]} />
+          <InputText
+            label={'Edad'}
+            name='age'
+            placeholder={'18'}
+            type='text'
+            value={formik?.values?.profile?.age}
+            onChange={formik?.handleChange}
+          />
+          <InputSelect
+            label={'Rol'}
+            options={roleOptions}
+            placeholder={'Admin'}
+            value={formik?.values?.roles}
+          />
+          <CardCheckEnabled
+            firstInputName='enabled'
+            firstInputLabel='Si'
+            onChangeEnabled={() => formik.setFieldValue('enabled', true)}
+            onChangeDisabled={() => formik.setFieldValue('enabled', false)}
+            title={'Habilitado'}
+            required={false}
+            secondInputName='enabled'
+            secondInputLabel='No'
+            checkEnable={formik?.values?.enabled}
+            checkDisabled={!formik?.values?.enabled}
+          />
+          <CardCheckEnabled
+            firstInputName='approved'
+            firstInputLabel='Si'
+            onChangeEnabled={() => formik.setFieldValue('approved', true)}
+            onChangeDisabled={() => formik.setFieldValue('approved', false)}
+            title={'Aprobado'}
+            required={false}
+            secondInputName='approved'
+            secondInputLabel='No'
+            checkEnable={formik?.values?.approved}
+            checkDisabled={!formik?.values?.approved}
+          />
         </div>
-        <div className='flex gap-2 items-center justify-center'>
-          <Button
-            text='Cancel'
-          />
-          <Button
-            type='submit'
-            text='Save'
-
-          />
+        <div className='flex items-center justify-center gap-2'>
+          <Button text='Cancel' />
+          <Button type='submit' text='Save' />
         </div>
       </form>
     </div>

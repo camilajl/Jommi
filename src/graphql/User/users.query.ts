@@ -5,10 +5,18 @@ export const GET_USERS = gql`
     users {
       id
       enabled
+      approved
       name
       email
       roles {
         name
+      }
+      profile {
+        age
+        document
+        documentType
+        id
+        phone
       }
     }
   }
@@ -19,10 +27,19 @@ export const GET_USER = gql`
     userById(id: $id) {
       id
       enabled
+      approved
       name
       email
       roles {
+        id
         name
+      }
+      profile {
+        age
+        document
+        documentType
+        id
+        phone
       }
     }
   }

@@ -1,3 +1,4 @@
+import { profile } from 'console';
 import { builder } from '../builder';
 import { prisma } from '@/config/prisma';
 
@@ -7,7 +8,9 @@ builder.prismaObject('User', {
     name: t.exposeString('name', { nullable: true }),
     email: t.exposeString('email'),
     enabled: t.exposeBoolean('enabled'),
+    approved: t.exposeBoolean('approved'),
     roles: t.relation('roles'),
+    profile: t.relation('profile'),
   }),
 });
 

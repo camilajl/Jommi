@@ -3,11 +3,8 @@ import React from 'react';
 
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  /** Etiqueta del campo de entrada */
   label?: string;
-  /** Indica si el campo está deshabilitado */
   disabled?: boolean;
-  /** Indica si el campo es obligatorio */
   required?: boolean;
   extraClassNames?: string;
   type?: string;
