@@ -16,6 +16,10 @@ const UsersPage = () => {
     Query: GET_USERS,
   });
 
+  const createUserOnClick = () => {
+    //llamamos a api de next
+  }
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error! ${error.message} </div>;
   return (
@@ -27,10 +31,10 @@ const UsersPage = () => {
           value={search}
           placeholder='Buscar usuario'
           onChange={(e) => setSearch(e.target.value)}
-          onClick={() => {}}
+          onClick={() => { }}
         />
       </div>
-
+      Creat usuario
       <UserTable users={data?.users} />
     </div>
   );

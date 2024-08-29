@@ -34,6 +34,7 @@ const config: Config = {
         tertiaryGrey: '#505050',
         backgroundGrey: '#1E1E1E',
         tableTitleColor: '#F9F9F9',
+        attachbg: '#f0efed',
       },
       fontFamily: {
         primaryFont: ['Work Sans', 'sans-serif'],

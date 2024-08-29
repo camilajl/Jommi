@@ -19,7 +19,6 @@ import { roleOptions } from '@/src/utils/enumOptions';
 import { InputCheck } from '@/src/components/UI/Input/InputCheck';
 import { ExtendedUser } from '@/src/utils/types';
 import { CardCheckEnabled } from '@/src/components/UI/Card/CardCheckEnabled';
-import { profile } from 'console';
 
 interface UserPageInterface {
   id: string;
@@ -71,7 +70,6 @@ const UserPage = ({ id }: UserPageInterface) => {
     }
   }, [queryLoading, queryError, error2, setLoading, setError]);
 
-
   const initialValues: Partial<GetUserByIdQuery['userById']> = useMemo(() => {
     if (!userData) return {};
     return {
@@ -80,7 +78,7 @@ const UserPage = ({ id }: UserPageInterface) => {
       roles: userData?.roles,
       profile: userData?.profile,
       approved: userData?.approved,
-      enabled: userData?.enabled
+      enabled: userData?.enabled,
     };
   }, [userData]);
 
@@ -100,7 +98,7 @@ const UserPage = ({ id }: UserPageInterface) => {
     },
     enableReinitialize: true,
   });
-  console.log('object :>> ', formik);
+  console.log('object :>> ', roleOptions);
 
   return (
     <div className='flex flex-col space-y-10'>
@@ -136,7 +134,7 @@ const UserPage = ({ id }: UserPageInterface) => {
             label={'Rol'}
             options={roleOptions}
             placeholder={'Admin'}
-            value={formik?.values?.roles}
+            value={formik?.values?.roles?.[0]?.name}
           />
           <CardCheckEnabled
             firstInputName='enabled'
